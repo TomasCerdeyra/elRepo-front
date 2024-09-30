@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Material = () => {
+const MaterialesPage = () => {
   return (
     <div>Vista de material seleccionado</div>
   )
 }
 
-export default Material
+export default MaterialesPage

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getCarreras } from '../services/carrerasServices';
 import { Link } from 'react-router-dom'
 
-const Home = () => {
+const HomePage = () => {
   const [carreras, setCarreras] = useState([]);
 
   // Agrupar carreras por área
@@ -31,7 +31,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Lista de Carreras por Área</h1>
+      <h1>ELIGE TU CARRERA UNIVERSITARIA:</h1>
       {Object.keys(carreras).map((area) => (
         <div key={area}>
           <h2>{area}</h2> {/* Título del área */}
@@ -50,4 +50,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default HomePage;

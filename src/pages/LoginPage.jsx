@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Login = () => {
+const LoginPage = () => {
 
   //Funcion para manejar el clik en el boton de inicio sesion
   const handleLogin = () => {
@@ -17,4 +17,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginPage
