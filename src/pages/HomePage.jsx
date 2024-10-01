@@ -30,16 +30,30 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container" style={{ textAlign: 'center' }}>
       <h1>ELIGE TU CARRERA UNIVERSITARIA:</h1>
       {Object.keys(carreras).map((area) => (
-        <div key={area}>
+        <div key={area} className="area">
+          <h2>log0</h2>
           <h2>{area}</h2> {/* Título del área */}
           <ul>
             {carreras[area].map((carrera) => (
               <div key={carrera._id}>
                 <Link to={`/carrera/${carrera._id}`}>
-                  {carrera.name}
+                  <button style={{ 
+                    backgroundColor: 'green', 
+                    color: 'white', 
+                    padding: '10px 20px', 
+                    border: 'none', 
+                    borderRadius: '5px', 
+                    cursor: 'pointer', 
+                    display: 'inline-block', 
+                    textDecoration: 'none',
+                    width: '30%', // Opcional
+                    textAlign: 'center'
+                  }}>
+                    {carrera.name}
+                  </button>
                 </Link>
               </div>
             ))}
@@ -49,5 +63,7 @@ const HomePage = () => {
     </div>
   );
 }
+
+
 
 export default HomePage;
