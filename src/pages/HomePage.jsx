@@ -31,10 +31,10 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>ELIGE TU CARRERA UNIVERSITARIA:</h1>
+      <h1 className=' text-2xl'>ELIGE TU CARRERA UNIVERSITARIA:</h1>
       {Object.keys(carreras).map((area) => (
-        <div key={area}>
-          <h2>{area}</h2> {/* Título del área */}
+        <div className=' m-4' key={area}>
+          <h2 className=' text-xl mb-2'>{area}</h2> {/* Título del área */}
           <ul>
             {carreras[area].map((carrera) => (
               <div key={carrera._id}>

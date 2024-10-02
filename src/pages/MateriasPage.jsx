@@ -31,7 +31,7 @@ const MateriasPage = () => {
 
   return (
     <div>
-      <h1>{carrera.name}</h1>
+      <h2 className='text-xl mb-3'>{carrera}</h2>
       <MateriasList materias={materias}/>
     </div>
   )
