@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getMateriasByCarrera } from '../services/materiasServices';
 import MateriasList from '../components/MateriasList';
 
+
 const MateriasPage = () => {
   const { id } = useParams();
   const [carrera, setCarrera] = useState({})
@@ -31,7 +32,7 @@ const MateriasPage = () => {
 
   return (
     <div>
-      <h2 className='text-xl mb-3'>{carrera}</h2>
+      <h1>{carrera.name}</h1>
       <MateriasList materias={materias}/>
     </div>
   )
