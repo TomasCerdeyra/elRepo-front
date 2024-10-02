@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMateriasByCarrera } from '../services/materiasServices';
 import MateriasList from '../components/MateriasList';
+import { Button } from '../components/Button';
+
 
 const MateriasPage = () => {
   const { id } = useParams();
@@ -32,7 +34,10 @@ const MateriasPage = () => {
   return (
     <div>
       <h1>{carrera.name}</h1>
-      <MateriasList materias={materias}/>
+      <MateriasList materias={materias}/> 
+ 
+
+
     </div>
   )
 }

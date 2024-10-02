@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getCarreras } from '../services/carrerasServices';
 import { Link } from 'react-router-dom'
+import { Button } from '../components/Button';
 
 const HomePage = () => {
   const [carreras, setCarreras] = useState([]);
@@ -30,40 +31,33 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="container" style={{ textAlign: 'center' }}>
+
+    <div>
+
+
       <h1>ELIGE TU CARRERA UNIVERSITARIA:</h1>
       {Object.keys(carreras).map((area) => (
-        <div key={area} className="area">
-          <h2>log0</h2>
+        <div key={area}>
           <h2>{area}</h2> {/* Título del área */}
+          
           <ul>
             {carreras[area].map((carrera) => (
+              
               <div key={carrera._id}>
+                <Button>
                 <Link to={`/carrera/${carrera._id}`}>
-                  <button style={{ 
-                    backgroundColor: 'green', 
-                    color: 'white', 
-                    padding: '10px 20px', 
-                    border: 'none', 
-                    borderRadius: '5px', 
-                    cursor: 'pointer', 
-                    display: 'inline-block', 
-                    textDecoration: 'none',
-                    width: '30%', // Opcional
-                    textAlign: 'center'
-                  }}>
-                    {carrera.name}
-                  </button>
+                  {carrera.name}
                 </Link>
+                </Button>
               </div>
+              
             ))}
           </ul>
+          
         </div>
       ))}
+                
     </div>
   );
 }
-
-
-
 export default HomePage;
