@@ -24,10 +24,13 @@ const ButtonName = ({ carrera, logo, area, materia, onClick }) => {
   };
 
   return (
-    <button className="bg-[#4F847C] text-white w-full font-light px-3 py-1 md:px-4 lg:px-5 xl:px-6" onClick={handleClick}>
+
+   
+      <button className="bg-[#4F847C] text-white font-light py-3 md:py-4 lg:py-5 xl:py-6 px-3 md:px-4 lg:px-5 xl:px-6 flex items-center justify-center text-xs md:text-md lg:text-lg xl:text-2xl text-center hover:bg-[#3b6b5e] hover:shadow-md transition duration-200 w-full" onClick={handleClick}>
       {carrera ? carrera : materia}
     </button>
-  );
+
+  );   
 };
 
 export default ButtonName;
