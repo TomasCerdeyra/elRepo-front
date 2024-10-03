@@ -24,7 +24,7 @@ const ButtonName = ({ carrera, logo, area, materia, onClick }) => {
   };
 
   return (
-    <button className="bg-[#4F847C] text-white w-full font-light py-1 px-1 sm:py-2" onClick={handleClick}>
+    <button className="hover:bg-[#3b6b5e] hover:shadow-md transition duration-200 bg-[#4F847C] text-white w-full font-light py-1 px-1 sm:py-2" onClick={handleClick}>
       {carrera ? carrera : materia}
     </button>
   );

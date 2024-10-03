@@ -34,7 +34,7 @@ const MaterialesPage = () => {
     <div className=' bg-[#EFF3F5]'>
       <Navbar/>
 
-      <h1 className='uppercase text-[#16353B] text-2xl text-center my-5 font-bold font-sans'>{materia}</h1>
+      <h1 className='text-[#16353B] text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center font-bold font-sans uppercase mt-7'>{materia}</h1>
       <div className=" h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
       <div className='flex'>
       <p className="flex-1 text-black font-semibold">Nombre:</p>

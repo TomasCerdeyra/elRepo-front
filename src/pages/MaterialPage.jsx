@@ -29,11 +29,18 @@ const MaterialPage = () => {
   }
 
   return (
-    <div className=" bg-[#EFF3F5]">
+    
+      <div className="min-h-screen flex flex-col bg-[#EFF3F5]">
+    
       <Navbar />
+      <div className="flex-grow">
+
       <MaterialDetail material={material} />
+ 
+      </div>
       <Footer />
-    </div>
+      </div>
+    
   );
 };
 

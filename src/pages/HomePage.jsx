@@ -47,7 +47,7 @@ const HomePage = () => {
             className="text-white text-1xl md:text-2xl lg:text-3xl xl:text-4xl text-center font-bold font-sans px-5 sm:px-20  "
             key={area}
           >
-            <div className="h-[.13rem] mt-7 mb-5 bg-[#4F847C]"></div>
+            <div className=" h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
             <div className="flex flex-col items-center">
               <img
                 src={logos[area]}

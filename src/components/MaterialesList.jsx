@@ -6,7 +6,7 @@ const MaterialesList = ({ materiales }) => {
     <ul>
       {materiales.map((material) => (
         <Link key={material._id} to={`/material/${material._id}`}>
-          <div className="bg-[#ffff] p-3 m-2 flex items-center justify-between">
+          <div className="hover:bg-[#3b6b5e] hover:shadow-md transition duration-200 bg-[#ffff] p-3 m-2 flex items-center justify-between">
             <p className="flex-1  font-semibold">{material.nombre}</p>
             <p className="flex-1 text-center  text-xs font-medium">{material.anio}</p>
             {/* mas adelante cambiarlo por un icono */}
