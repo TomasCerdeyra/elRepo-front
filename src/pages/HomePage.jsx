@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import logos from '../services/logosServices';
-import ButtonName from '../components/buttons/ButtonName';
 
 const HomePage = () => {
   const [carreras, setCarreras] = useState([]);
@@ -49,8 +48,12 @@ const HomePage = () => {
             <h2 className='text-[#16353B] text-xl md:text-2xl lg:text-3xl xl:text-4xl mb-5'>{area}</h2> {/* Título del área */}
             <ul className='flex flex-col gap-2 px-6'>
               {carreras[area].map((carrera) => (
-                <Link to={`/carrera/${carrera._id}`} key={carrera._id}>
-                <ButtonName carrera={carrera.name} area={area} logo={logos[area]}/>
+                <Link to={`/carrera/${carrera._id}`} key={carrera._id} className='w-full md:w-3/4 lg:w-1/2 xl:w-1/3 mx-auto'>
+                  <div className='bg-[#4F847C] font-light py-3 md:py-4 lg:py-5 xl:py-6 px-3 md:px-4 lg:px-5 xl:px-6 flex items-center justify-center hover:bg-[#3b6b5e] hover:shadow-md transition duration-200'>
+                    <span className='text-sm md:text-base lg:text-lg xl:text-xl text-center'>
+                      {carrera.name}
+                    </span>
+                  </div>
                 </Link>
               ))}
             </ul>
