@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getMateriasByCarrera } from '../services/materiasServices';
 import MateriasList from '../components/MateriasList';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 
 const MateriasPage = () => {
@@ -32,8 +34,10 @@ const MateriasPage = () => {
 
   return (
     <div>
-      <h1>{carrera.name}</h1>
+      <Navbar/>
+      <h1 className=''>{carrera.name}</h1>
       <MateriasList materias={materias}/>
+      <Footer/>
     </div>
   )
 }

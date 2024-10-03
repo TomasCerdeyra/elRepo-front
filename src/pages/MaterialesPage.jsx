@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import {useParams}  from 'react-router-dom'
 import { getMaterilesByMateria } from '../services/materialesServices'
 import MaterialesList from '../components/MaterialesList'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 
 const MaterialesPage = () => {
   const {id} = useParams()
@@ -30,8 +32,16 @@ const MaterialesPage = () => {
 
   return (
     <div>
-      <h1 className=' text-center'>{materia}</h1>
+      <Navbar/>
+
+      <h1 className='uppercase text-[#16353B] text-2xl text-center my-5 font-bold font-sans'>{materia}</h1>
+      <div className=" h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
+      <div className='flex'>
+      <p className="flex-1 text-black font-semibold">Nombre:</p>
+      <p className="flex-1 text-center text-black  font-medium">Año:</p>
+      </div>
       <MaterialesList materiales={materiales}/>
+      <Footer/>
     </div>
   )
 }
