@@ -1,21 +1,40 @@
-import React from 'react'
-import Footer from '../components/Footer'
-import Navbar from '../components/Navbar'
-
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
+import { getMaterialById } from "../services/materialesServices";
+import MaterialDetail from "../components/MaterialDetail";
 
 const MaterialPage = () => {
+  const { id } = useParams(); // Obtener el ID del material desde la URL
+  const [material, setMaterial] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const cargarMaterial = async () => {
+      try {
+        const data = await getMaterialById(id); 
+        setMaterial(data); 
+        setLoading(false);
+      } catch (error) {
+        setError('Error al cargar el material');
+        setLoading(false);
+      }
+    };
+    cargarMaterial();
+  }, [id]);
+
+  if (loading) {
+    return <p>Cargando material...</p>;
+  }
+
   return (
     <div>
-      <Navbar/>
-      <h1 className='uppercase text-[#16353B] text-2xl text-center my-5 font-bold font-sans'>Nombre del Material</h1>
-      <div className=" h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
-      <h1>Año:</h1>
-      <h1>Descripcion:</h1>
-      <h1>Nombre del profesor:</h1>
-      <h1>Material:</h1>
-      <Footer/>
+      <Navbar />
+      <MaterialDetail material={material} />
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default MaterialPage
+export default MaterialPage;
