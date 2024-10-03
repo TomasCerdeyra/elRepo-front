@@ -3,10 +3,10 @@ import logorepo from '../../public/elRepo_logo.png'
 
 const Navbar = () => {
   return (
-    <div>
-        <img src={logorepo} className='scale-75 -mt-8' alt="" />
-    <div class="w-full h-1 bg-[#959500] -mt-6"></div>
-    <div class="w-full h-1 bg-[#16353B] mt-1"></div>
+    <div className='flex flex-col'>
+      <img src={logorepo} className='w-30 h-16 object-contain' alt="" />
+      <div class="h-1 bg-[#959500]"></div>
+      <div class="h-1 bg-[#16353B] mt-[.1rem]"></div>
     </div>
   )
 }
