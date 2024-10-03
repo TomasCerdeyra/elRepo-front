@@ -1,4 +1,3 @@
-import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
@@ -21,7 +20,7 @@ const LoginPage = () => {
         <div className="flex justify-center">
           <button className='flex items-center gap-2 w-[195px] h-[40px] min-w-[195px] px-[1px] pl-[10px] pr-[10px] rounded-[3px] border border-[rgba(0,0,0,0.10)] bg-[#DC4E41] text-white hover:bg-red-700' onClick={handleLogin}>
             <img src="/public/google_icon.png" alt="Google Icon" className="h-6 w-6" />
-            <span className="ml-2">Iniciar Sesion con Google</span>
+            <span className="ml-2 leading-[1.1]">Loguearse con Google</span>
           </button>
         </div>
       </div>
