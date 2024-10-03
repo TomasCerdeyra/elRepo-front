@@ -29,7 +29,7 @@ const MaterialPage = () => {
   }
 
   return (
-    <div>
+    <div className=" bg-[#EFF3F5]">
       <Navbar />
       <MaterialDetail material={material} />
       <Footer />

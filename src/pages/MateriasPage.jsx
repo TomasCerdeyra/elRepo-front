@@ -35,7 +35,7 @@ const MateriasPage = () => {
 
 
   return (
-    <div>
+    <div className=' bg-[#EFF3F5]'>
       <Navbar/>
       <div className='flex flex-col items-center py-5'>
       <img src={logo} className="h-9 md:h-12 lg:h-16 xl:h-20 object-contain" alt="Logo del área" />

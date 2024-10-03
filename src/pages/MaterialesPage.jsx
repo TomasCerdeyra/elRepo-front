@@ -31,7 +31,7 @@ const MaterialesPage = () => {
   }
 
   return (
-    <div>
+    <div className=' bg-[#EFF3F5]'>
       <Navbar/>
 
       <h1 className='uppercase text-[#16353B] text-2xl text-center my-5 font-bold font-sans'>{materia}</h1>
