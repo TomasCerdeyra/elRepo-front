@@ -33,14 +33,15 @@ const MateriasPage = () => {
     return <p>Cargando materias...</p>;
   }
 
+
   return (
-    <div className='mt-10'>
+    <div>
       <Navbar/>
-      <div className='flex flex-col items-center py-5 mb-10'>
+      <div className='flex flex-col items-center py-5'>
       <img src={logo} className="h-9 md:h-12 lg:h-16 xl:h-20 object-contain" alt="Logo del área" />
       <p>{area}</p>
       <h2 className='text-xl text-center font-bold'>{carrera}</h2>
-      <p className='font-bold text-sm md:text-1xl lg:text-3xl xl:text-4xl'>MATERIAS</p>
+      <p className='font-bold text-lg'>MATERIAS</p>
       </div>
       {/* <h1 className=''>{carrera.name}</h1> */}
       <MateriasList materias={materias}/>
