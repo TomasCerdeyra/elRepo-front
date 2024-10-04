@@ -9,6 +9,7 @@ const MaterialPage = () => {
   const { id } = useParams(); // Obtener el ID del material desde la URL
   const [material, setMaterial] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const cargarMaterial = async () => {
@@ -29,18 +30,13 @@ const MaterialPage = () => {
   }
 
   return (
-    
-      <div className="min-h-screen flex flex-col bg-[#EFF3F5]">
-    
+    <div className="min-h-screen flex flex-col bg-[#EFF3F5]">
       <Navbar />
-      <div className="flex-grow">
-
-      <MaterialDetail material={material} />
- 
+      <div className="flex-grow flex flex-col items-center justify-center">
+        <MaterialDetail material={material} />
       </div>
       <Footer />
-      </div>
-    
+    </div>
   );
 };
 
