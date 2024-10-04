@@ -44,7 +44,17 @@ const MateriasPage = () => {
       <p className='font-bold text-lg'>MATERIAS</p>
       </div>
       {/* <h1 className=''>{carrera.name}</h1> */}
-      <MateriasList materias={materias}/>
+      <div className=" h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
+      <div className='sm:flex justify-center gap-x-8 md:gap-x-12 lg:gap-x-24 xl:gap-x-40 2xl:gap-56'>
+        <div className=''>
+          <MateriasList materias={materias.slice(0, Math.ceil(materias.length / 2))}/>
+        </div>
+        <div className=''>
+          <MateriasList materias={materias.slice(Math.ceil(materias.length / 2))}/>
+        </div>
+      </div>
+
+      
       <Footer/>
     </div>
   )
