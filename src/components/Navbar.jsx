@@ -6,17 +6,25 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <div className="flex flex-col items-center">
-      {location.pathname !== '/' ? (
-        <Link to="/home">
-          <img src={logo1} className='h-20 md:h-16 lg:h-24 xl:h-24' alt="Logo" />
-        </Link>
-      ) : (
-        <img src={logo1} className='h-20 md:h-16 lg:h-24 xl:h-24' alt="Logo" />
-      )}
-      <div className="w-full h-1 bg-[#959500] "></div>
-      <div className="w-full h-1 bg-[#16353B] mt-1"></div>
+    <div>
+    <div className="flex justify-between items-center p-4 bg-white"> {/* Contenedor principal */}
+      <div className="flex-grow flex justify-center ml-24"> {/* Contenedor para centrar el logo */}
+        {location.pathname !== '/' ? (
+          <Link to="/home">
+            <img src={logo1} className='h-20 md:h-16 lg:h-24 xl:h-24 -mt-3 ' alt="Logo" />
+          </Link>
+        ) : (
+          <img src={logo1} className='h-20 md:h-16 lg:h-24 xl:h-24 mt-4' alt="Logo" />
+        )}
+      </div>
+
+      <div className="flex-shrink-0"> {/* Asegura que el botón esté alineado a la derecha */}
+        <button className=" hover:bg-red-700 hover:shadow-md transition duration-200 rounded text-xs font-medium   bg-red-500 text-white py-1 px-3">Cerrar Sesión</button>
+      </div>
     </div>
+    <div className="w-full h-1 bg-[#959500] -mt-3"></div>
+    <div className="w-full h-1 bg-[#16353B] mt-1"></div>
+  </div>
   );
 }
 
