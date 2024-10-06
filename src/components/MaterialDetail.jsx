@@ -14,7 +14,7 @@ const MaterialDetail = ({ material }) => {
             )}
             {material.tipo === 'archivo' && (
                 <a href={`http://localhost:8080/uploads/${material.rutaArchivo}`} download target="_blank" rel="noopener noreferrer">
-                    <button className="hover:bg-green-800 hover:shadow-md transition duration-200 bg-green-600 text-white py-2 px-4 rounded">
+                    <button className="hover:bg-green-400 hover:shadow-md transition duration-200 bg-green-600 text-white py-2 px-4 rounded">
                         Descargar archivo
                     </button>
                 </a>

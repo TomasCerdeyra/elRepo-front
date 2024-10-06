@@ -63,14 +63,14 @@ const HomePage = () => {
               {carreras[area].map((carrera) => (
                 <div className="px-3 sm:px-8 md:px-20 lg:px-24 2xl:px-32">
                   <Link to={`/carrera/${carrera._id}`} key={carrera._id}>
-                  <ButtonName
-                    carrera={carrera.name}
-                    area={area}
-                    logo={logos[area]}
-                  />
-                </Link>
+                    <ButtonName
+                      carrera={carrera.name}
+                      area={area}
+                      logo={logos[area]}
+                    />
+                  </Link>
                 </div>
-                
+
               ))}
             </ul>
           </div>
