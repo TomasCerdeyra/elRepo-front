@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { getMaterilesByMateria } from '../../services/materialesServices';
-import MaterialesList from '../../components/MaterialesList';
+import React from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
 export const GestionAportes = () => {
-    const { id } = useParams();
-    const [materia, setMateria] = useState(null);
-    const [materiales, setMateriales] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
+ 
 
     useEffect(() => {
         const cargarMateriales = async () => {
@@ -42,7 +35,6 @@ export const GestionAportes = () => {
                 </div>
                 <div className="h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
 
-                <MaterialesList materiales={materiales} />
             </div>
             <Footer />
         </div>

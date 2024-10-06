@@ -10,6 +10,8 @@ import MateriasPage from "./pages/MateriasPage"
 import MaterialesPage from "./pages/MaterialesPage"
 import MaterialPage from "./pages/MaterialPage"
 import SubirAportePage from "./pages/SubirAportePage"
+import { NewCarrera } from "./pages/Admin/NewCarrera";
+import NewMaterias, { NewMateria } from "./pages/Admin/NewMateria";
 
 
 
@@ -24,6 +26,8 @@ function App() {
          <Route path="/admin" element={<AdminPage />} />
          <Route path="/gestionaportes" element={<GestionAportes />} />{/* Gestion de Aportes (AdminPage)*/}
          <Route path="/gestioncarreras" element={<GestionCarreras />} />{/* Gestion de Carreras (AdminPage)*/}
+         <Route path="/agregarcarreras" element={<NewCarrera />} />{/* Agregar carrera (GestionCarreras)*/}
+         <Route path="/agregarmaterias" element={<NewMateria />} />{/* Agregar materia (GestionMaterias)*/}
          <Route path="/gestionmaterias" element={<GestionMaterias />} />{/* Gestion de Materias (AdminPage)*/}
          <Route path="/home" element={<HomePage />} />
          <Route path="/carrera/:id" element={<MateriasPage />} />{/* Lista de Materias */}

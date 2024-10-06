@@ -1,10 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
 
+
 export const GestionCarreras = () => {
+    const navigate = useNavigate();  // Utilizamos useNavigate para redirigir
+  
+    const handleAgregarCarrera = () => {
+      navigate("/agregarcarreras");
+    };
+
     return (
         <div className="min-h-screen flex flex-col bg-[#EFF3F5]">
             <Navbar />
@@ -12,8 +19,9 @@ export const GestionCarreras = () => {
                 <h1 className='text-[#16353B] text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center font-bold font-sans uppercase mt-7'>GESTIONAR CARRERAS</h1>
                 <div className="flex justify-center mt-6">
                     <button
+                    onClick={handleAgregarCarrera}
                         className="hover:bg-[#3b6b5e] hover:shadow-md transition duration-200 bg-[#4F847C] text-white py-2 px-4 rounded mr-4">
-                        Añadir Materias
+                        Añadir Carrera
                     </button>
                     <button className="hover:bg-[#3b6b5e] hover:shadow-md transition duration-200 bg-[#4F847C] text-white py-2 px-4 rounded mr-4">Buscar Carrera</button>
                     <button className="hover:bg-[#3b6b5e] hover:shadow-md transition duration-200 bg-[#4F847C] text-white py-2 px-4 rounded">Actualizar Carreras</button>
