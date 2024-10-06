@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import logo1 from '../../public/logo1'
+import logo1 from '../../public/logo1.png';
 
 const Navbar = () => {
   const location = useLocation();

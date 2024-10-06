@@ -5,25 +5,7 @@ import Footer from '../../components/Footer';
 export const GestionAportes = () => {
  
 
-    useEffect(() => {
-        const cargarMateriales = async () => {
-            try {
-                const data = await getMaterilesByMateria(id);
-                setMateria(data.materia);
-                setMateriales(data.materiales);
-                setLoading(false);
-            } catch (error) {
-                console.log('Error al cargar componente');
-                setLoading(false);
-            }
-        };
-        cargarMateriales();
-    }, [id]);
 
-    if (loading) {
-        return <p>Cargando materiales...</p>;
-
-    }
 
     return (
         <div className='min-h-screen flex flex-col bg-[#EFF3F5]'>
@@ -39,6 +21,6 @@ export const GestionAportes = () => {
             <Footer />
         </div>
     )
-}
+};
 
 export default GestionAportes

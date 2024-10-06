@@ -33,6 +33,6 @@ export const GestionCarreras = () => {
 
         </div>
     )
-}
+};
 
 export default GestionCarreras

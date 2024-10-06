@@ -6,7 +6,7 @@ import Footer from '../../components/Footer';
 
 
 
-export const GestionCarreras = () => {
+export const GestionMaterias = () => {
     const navigate = useNavigate();  // Utilizamos useNavigate para redirigir
 
     const handleAgregarMateria = () => {
@@ -34,6 +34,6 @@ export const GestionCarreras = () => {
 
         </div>
     )
-}
+};
 
 export default GestionMaterias
