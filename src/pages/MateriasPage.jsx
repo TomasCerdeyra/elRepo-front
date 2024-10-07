@@ -18,8 +18,8 @@ const MateriasPage = () => {
     const cargarMaterias = async () => {
       try {
         const data = await getMateriasByCarrera(id)
-        /* setCarrera(data.carrera) */
-        setMaterias(data.materias)
+
+        setMaterias(data)
         setLoading(false)
       } catch (error) {
         setError('Error al cargar las materias');

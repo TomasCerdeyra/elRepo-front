@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { getMaterilesByMateria } from "../services/materialesServices";
 import MaterialesList from "../components/MaterialesList";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { AppContext } from "../context/AppContext";
 
 const MaterialesPage = () => {
   const { id } = useParams();
-  const [materia, setMateria] = useState(null);
+  const {materia} = useContext(AppContext)
   const [materiales, setMateriales] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -15,10 +16,7 @@ const MaterialesPage = () => {
     const cargarMateriales = async () => {
       try {
         const data = await getMaterilesByMateria(id);
-        setMateria(data.materia);
-        console.log(id);
-
-        setMateriales(data.materiales);
+        setMateriales(data);
         setLoading(false);
       } catch (error) {
         console.log("Error al cargar componente");
