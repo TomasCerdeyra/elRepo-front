@@ -2,6 +2,7 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080/api/materiales";
 
+//Traer todos los materiales
 export const getMaterilesByMateria = async (materiaId) => {
   try {
     const response = axios.get(`${API_URL}/materia/${materiaId}`);
@@ -12,7 +13,7 @@ export const getMaterilesByMateria = async (materiaId) => {
 };
 
 
-// Función para obtener un material por su ID
+//obtener un material por su ID
 export const getMaterialById = async (materialId) => {
   try {
     const response = await axios.get(`${API_URL}/${materialId}`);
@@ -21,3 +22,16 @@ export const getMaterialById = async (materialId) => {
     throw new Error('Error al obtener el material');
   }
 };
+
+//Subir un archivos
+export const uploadMaterial = async (formData) => {
+  try {
+    const response = axios.post(API_URL, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      }
+    })
+  } catch (error) {
+    throw new Error('Error al subir el material')
+  }
+}

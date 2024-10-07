@@ -36,8 +36,8 @@ function App() {
          <Route path="/home" element={<HomePage />} />
          <Route path="/carrera/:id" element={<MateriasPage />} />{/* Lista de Materias */}
          <Route path="/materia/:id" element={<MaterialesPage />} />{/* Lista de Materiales */}
-         <Route path="/subiraporte" element={<SubirAportePage />} /> {/* Subir Aportes */}
          <Route path="/material/:id" element={<MaterialPage />} /> {/* Vista de material seleccionado */}
+         <Route path="/material/aporte/:id" element={<SubirAportePage />} /> {/* Subir Aportes */}
           {/* Principal */}        
         </Routes>
      </Router>
