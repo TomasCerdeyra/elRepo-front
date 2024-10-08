@@ -50,7 +50,7 @@ const MaterialesPage = () => {
           </button>
         </div>
         <div className="h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
-
+        
         <MaterialesList materiales={materiales} />
       </div>
       <Footer />

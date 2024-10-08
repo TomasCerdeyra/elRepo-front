@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import CarrerasList from "../../components/CarrerasList";
+import { getCarreras } from "../../services/carrerasServices"; // Importar el servicio
 
 export const GestionCarreras = () => {
+  const [carreras, setCarreras] = useState([]);
+
+  // Cargar carreras al montar el componente
+  useEffect(() => {
+    const cargarCarreras = async () => {
+      try {
+        const data = await getCarreras(); // Obtener lista de carreras desde el servicio
+        setCarreras(data); // Asignar las carreras al estado
+      } catch (error) {
+        console.log("Error al cargar las carreras");
+      }
+    };
+    cargarCarreras();
+  }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-[#EFF3F5]">
@@ -28,7 +44,9 @@ export const GestionCarreras = () => {
           </button>
         </div>
         <div className="h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
-        <h1 className="text-center">lista de carreras</h1>
+        <h1 className="text-center font-medium text-2xl text-[#16353B] mb-6">LISTA DE CARRERAS:</h1>
+        {/* Pasar las carreras obtenidas al componente CarrerasList */}
+        <CarrerasList carreras={carreras} />
       </div>
       <Footer />
     </div>
