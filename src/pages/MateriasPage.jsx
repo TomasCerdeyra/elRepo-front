@@ -30,7 +30,9 @@ const MateriasPage = () => {
   }, [id])
 
   if (loading) {
-    return <p>Cargando materias...</p>;
+    return <div class="h-screen flex items-center justify-center">
+    <p class="text-center font-semibold text-[#16353B]">Cargando Aporte...</p>
+  </div>;
   }
 
 

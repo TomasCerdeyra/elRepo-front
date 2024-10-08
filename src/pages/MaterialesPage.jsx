@@ -27,7 +27,9 @@ const MaterialesPage = () => {
   }, [id]);
 
   if (loading) {
-    return <p>Cargando materiales...</p>;
+    return <div class="h-screen flex items-center justify-center">
+    <p class="text-center font-semibold text-[#16353B]">Cargando Aportes...</p>
+  </div>;
   }
 
   return (
@@ -48,10 +50,7 @@ const MaterialesPage = () => {
           </button>
         </div>
         <div className="h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
-        <div className="flex">
-          <p className="flex-1 text-black font-semibold ml-9">Nombre:</p>
-          <p className="flex-1 text-center text-black font-medium">Año:</p>
-        </div>
+
         <MaterialesList materiales={materiales} />
       </div>
       <Footer />

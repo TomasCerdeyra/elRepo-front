@@ -54,10 +54,10 @@ const AporteForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 border rounded">
+    <form onSubmit={handleSubmit} className="p-4 border rounded mx-20">
       <div className="mb-2">
-        <label htmlFor="tipo" className="block">
-          Tipo de Aporte
+        <label htmlFor="tipo" className="block font-semibold">
+          Tipo de Aporte:
         </label>
         <select
           id="tipo"
@@ -72,7 +72,7 @@ const AporteForm = () => {
         </select>
       </div>
       <div className="mb-2">
-        <label htmlFor="nombre" className="block">
+        <label htmlFor="nombre" className="block font-semibold">
           Nombre:
         </label>
         <input
@@ -85,7 +85,7 @@ const AporteForm = () => {
         />
       </div>
       <div className="mb-2">
-        <label htmlFor="anio" className="block">
+        <label htmlFor="anio" className="block font-semibold">
           Año:
         </label>
         <input
@@ -98,7 +98,7 @@ const AporteForm = () => {
         />
       </div>
       <div className="mb-2">
-        <label htmlFor="descripcion" className="block">
+        <label htmlFor="descripcion" className="block font-semibold">
           Descripción:
         </label>
         <textarea
@@ -111,7 +111,7 @@ const AporteForm = () => {
         />
       </div>
       <div className="mb-2">
-        <label htmlFor="profesor" className="block">
+        <label htmlFor="profesor" className="block font-semibold">
           Profesor (Opcional):
         </label>
         <input
@@ -123,7 +123,7 @@ const AporteForm = () => {
         />
       </div>
       <div className="mb-2">
-        <label htmlFor="archivo" className="block">
+        <label htmlFor="archivo" className="block font-semibold">
           Archivo:
         </label>
         <input
@@ -134,13 +134,16 @@ const AporteForm = () => {
           required
         />
       </div>
+      <div className="flex justify-center">
       <button
         type="submit"
-        className=" bg-green-500 py-2 px-4 rounded"
+        className="hover:bg-green-400 hover:shadow-md transition duration-200 bg-green-600 text-white py-2 px-6 rounded mt-5"
         disabled={loading}
       >
+        
         {loading ? "Subiendo..." : "Subir Aporte"}
       </button>
+      </div>
       {message && <p className="mt-2 text-red-500">{message}</p>}
     </form>
   );
