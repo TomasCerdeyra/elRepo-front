@@ -12,7 +12,6 @@ export const getMaterilesByMateria = async (materiaId) => {
   }
 };
 
-
 //obtener un material por su ID
 export const getMaterialById = async (materialId) => {
   try {
@@ -33,5 +32,15 @@ export const uploadMaterial = async (formData) => {
     })
   } catch (error) {
     throw new Error('Error al subir el material')
+  }
+}
+
+//Denunciar un material
+export const reportMaterial = async (materialId) => {
+  try {
+    const response = await axios.put(`${API_URL}/report/${materialId}`)
+    return response.data
+  } catch (error) {
+    throw new Error('Error al denunciar el material');
   }
 }
