@@ -36,12 +36,6 @@ export const GestionCarreras = () => {
               Añadir Carrera
             </button>
           </Link>
-          <button className="hover:bg-[#3b6b5e] hover:shadow-md transition duration-200 bg-[#4F847C] text-white py-2 px-4 rounded mr-4">
-            Eliminar Carrera
-          </button>
-          <button className="hover:bg-[#3b6b5e] hover:shadow-md transition duration-200 bg-[#4F847C] text-white py-2 px-4 rounded">
-            Actualizar Carreras
-          </button>
         </div>
         <div className="h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
         <h1 className="text-center font-medium text-2xl text-[#16353B] mb-6">LISTA DE CARRERAS:</h1>

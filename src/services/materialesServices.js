@@ -15,7 +15,7 @@ export const getMaterilesByMateria = async (materiaId) => {
 //obtener un material por su ID
 export const getMaterialById = async (materialId) => {
   try {
-    const response = await axios.get(`${API_URL}/${materialId}`);
+    const response = await axios.get(`${API_URL}/material/${materialId}`);
     return response.data;
   } catch (error) {
     throw new Error('Error al obtener el material');
@@ -42,5 +42,15 @@ export const reportMaterial = async (materialId) => {
     return response.data
   } catch (error) {
     throw new Error('Error al denunciar el material');
+  }
+}
+
+//Obtener materialies denunciados
+export const getMaterialesReportados = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/reportes`)
+    return response.data
+  } catch (error) {
+    throw new Error('Error al obtener los materiales denunciados')
   }
 }
