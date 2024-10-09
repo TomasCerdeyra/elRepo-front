@@ -12,6 +12,7 @@ import MaterialPage from "./pages/MaterialPage"
 import SubirAportePage from "./pages/SubirAportePage"
 import { NewCarrera } from "./pages/Admin/Carreras/NewCarrera";
 import { NewMateria } from "./pages/Admin/Materias/NewMateria";
+import ErrorPage from "./pages/ErrorPage";
 
 
 
@@ -23,24 +24,25 @@ function App() {
       <Router>
         <Routes>
           {/* Login */}
-         <Route path="/" element={<LoginPage />} />
-         {/* Admin */}
-         <Route path="/admin" element={<AdminPage />} />
-         <Route path="/admin/gestionaportes" element={<GestionAportes />} />{/* Gestion de Aportes (AdminPage)*/}
-         <Route path="/admin/gestioncarreras" element={<GestionCarreras />} />{/* Gestion de Carreras (AdminPage)*/}
-         <Route path="/admin/gestionmaterias" element={<GestionMaterias />} />{/* Gestion de Materias (AdminPage)*/}
-         <Route path="/admin/agregarcarreras" element={<NewCarrera />} />{/* Agregar carrera (GestionCarreras)*/}
-         <Route path="/admin/agregarmaterias" element={<NewMateria />} />{/* Agregar materia (GestionMaterias)*/}
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/errorlogin" element={<ErrorPage />} />
+          {/* Admin */}
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin/gestionaportes" element={<GestionAportes />} />{/* Gestion de Aportes (AdminPage)*/}
+          <Route path="/admin/gestioncarreras" element={<GestionCarreras />} />{/* Gestion de Carreras (AdminPage)*/}
+          <Route path="/admin/gestionmaterias" element={<GestionMaterias />} />{/* Gestion de Materias (AdminPage)*/}
+          <Route path="/admin/agregarcarreras" element={<NewCarrera />} />{/* Agregar carrera (GestionCarreras)*/}
+          <Route path="/admin/agregarmaterias" element={<NewMateria />} />{/* Agregar materia (GestionMaterias)*/}
           {/* Admin */}
           {/* Principal */}
-         <Route path="/home" element={<HomePage />} />
-         <Route path="/carrera/:id" element={<MateriasPage />} />{/* Lista de Materias */}
-         <Route path="/materia/:id" element={<MaterialesPage />} />{/* Lista de Materiales */}
-         <Route path="/material/:id" element={<MaterialPage />} /> {/* Vista de material seleccionado */}
-         <Route path="/material/aporte/:id" element={<SubirAportePage />} /> {/* Subir Aportes */}
-          {/* Principal */}        
+          <Route path="/home" element={<HomePage />} />
+          <Route path="/carrera/:id" element={<MateriasPage />} />{/* Lista de Materias */}
+          <Route path="/materia/:id" element={<MaterialesPage />} />{/* Lista de Materiales */}
+          <Route path="/material/:id" element={<MaterialPage />} /> {/* Vista de material seleccionado */}
+          <Route path="/material/aporte/:id" element={<SubirAportePage />} /> {/* Subir Aportes */}
+          {/* Principal */}
         </Routes>
-     </Router>
+      </Router>
     </AppProvider>
   )
 }

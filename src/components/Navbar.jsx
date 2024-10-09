@@ -1,9 +1,20 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { logout } from '../services/authServices';
 import logo1 from '../../public/logo1.png';
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate()
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/')
+    } catch (error) {
+      console.error('Error al cerrar sesión', error);
+    }
+  }
 
   return (
     <div>
@@ -19,7 +30,7 @@ const Navbar = () => {
       </div>
 
       <div className="flex-shrink-0"> {/* Asegura que el botón esté alineado a la derecha */}
-        <button className=" hover:bg-red-700 hover:shadow-md transition duration-200 rounded text-xs font-medium   bg-red-500 text-white py-1 px-3">Cerrar Sesión</button>
+        <button onClick={handleLogout} className=" hover:bg-red-700 hover:shadow-md transition duration-200 rounded text-xs font-medium   bg-red-500 text-white py-1 px-3">Cerrar Sesión</button>
       </div>
     </div>
     <div className="w-full h-1 bg-[#959500] -mt-3"></div>
