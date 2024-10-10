@@ -37,8 +37,8 @@ const MaterialesReportadosList = () => {
                         <p className="flex-1 text-center  text-xs font-medium">{material.anio}</p>
 
                     </Link>
-                    <button className="rounded text-xs font-medium ring ring-red-500 text-right bg-red-500 text-white mr-5">Rechazar</button>
-                    <button className="rounded text-xs font-medium ring ring-red-500 text-right bg-red-500 text-white mr-5">Eliminar</button>
+                    <button className="rounded text-xm font-medium ring hover:ring-blue-600 hover:bg-blue-600 ring-blue-500 text-right bg-blue-500 text-white mr-5">Rechazar</button>
+                    <button className="rounded text-xm font-medium ring hover:ring-red-600 hover:bg-red-600 ring-red-500 text-right bg-red-500 text-white mr-5">Eliminar</button>
                 </div>
             ))}
         </ul>

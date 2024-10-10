@@ -11,3 +11,13 @@ export const getCarreras = async () => {
         throw new Error('Error al cargar las carreras')
     }
 }
+
+//eliminar carrera
+export const deleteCarrera = async (id) => {
+    try {
+        const response = await axios.delete(`${API_URL}/${id}`);
+        return response.data;
+    } catch (error) {
+        throw new Error('Error al eliminar la carrera');
+    }
+};

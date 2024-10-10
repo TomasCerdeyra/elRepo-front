@@ -12,7 +12,7 @@ const MaterialesList = ({ materiales }) => {
 
   const handleDenuncia = (materialID) => {
     MySwal.fire({
-      title: '¿Este material contiene contenido erróneo u ofensivo',
+      title: '¿Este material contiene contenido erróneo u ofensivo?',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -25,7 +25,7 @@ const MaterialesList = ({ materiales }) => {
           const data = await reportMaterial(materialID)
           console.log(data);
           MySwal.fire(
-            'Denunciado!',
+            '¡Material denunciado!',
             data,
             'success'
           );
@@ -51,7 +51,7 @@ const MaterialesList = ({ materiales }) => {
             <p className="flex-1  font-semibold">{material.nombre}</p>
             <p className="flex-1 text-center  text-xs font-medium">{material.anio}</p>
           </Link>
-          <button onClick={() => handleDenuncia(material._id)} className="rounded text-xs font-medium ring ring-red-500 text-right bg-red-500 text-white mr-5">
+          <button onClick={() => handleDenuncia(material._id)} className="rounded text-xm font-medium ring hover:ring-red-600 hover:bg-red-600 ring-red-500 text-right bg-red-500 text-white mr-5">
             Denunciar
           </button>
         </div>
