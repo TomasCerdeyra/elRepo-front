@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import { AppProvider } from "./context/AppContext"
+import { MateriaProvider } from "./context/MateriaContext"
 import LoginPage from "./pages/LoginPage"
 import AdminPage from "./pages/AdminPage"
 import GestionCarreras from './pages/Admin/GestionCarreras';
@@ -11,8 +12,8 @@ import MaterialesPage from "./pages/MaterialesPage"
 import MaterialPage from "./pages/MaterialPage"
 import SubirAportePage from "./pages/SubirAportePage"
 import { NewCarrera } from "./pages/Admin/Carreras/NewCarrera";
-import { NewMateria } from "./pages/Admin/Materias/NewMateria";
 import ErrorPage from "./pages/ErrorPage";
+import ActualizarMateria from "./pages/Admin/Materias/ActualizarMateria";
 
 
 
@@ -30,9 +31,11 @@ function App() {
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/admin/gestionaportes" element={<GestionAportes />} />{/* Gestion de Aportes (AdminPage)*/}
           <Route path="/admin/gestioncarreras" element={<GestionCarreras />} />{/* Gestion de Carreras (AdminPage)*/}
-          <Route path="/admin/gestionmaterias" element={<GestionMaterias />} />{/* Gestion de Materias (AdminPage)*/}
+
+          <Route path="/admin/gestionmaterias" element={<MateriaProvider> <GestionMaterias /> </MateriaProvider>} />{/* Gestion de Materias (AdminPage)*/}
+          <Route path="/admin/actualizarmateria/" element={<MateriaProvider> <ActualizarMateria /> </MateriaProvider>} />{/* Agregar materia (GestionMaterias)*/}
+
           <Route path="/admin/agregarcarreras" element={<NewCarrera />} />{/* Agregar carrera (GestionCarreras)*/}
-          <Route path="/admin/agregarmaterias" element={<NewMateria />} />{/* Agregar materia (GestionMaterias)*/}
           {/* Admin */}
           {/* Principal */}
           <Route path="/home" element={<HomePage />} />
