@@ -20,7 +20,7 @@ export const NewCarrera = () => {
         <div className="h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
 
         <div className="flex justify-center mt-6">
-          <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-24 pt-6 pb-8 mb-4">
+          <form onSubmit={handleSubmit} className="bg-[#EFF3F5]  ">
             <div className="mb-4 ">
               <label className="block text-gray-700 text-sm font-bold mb-2 px-20" htmlFor="nombreCarrera">
                 Nombre de la Carrera
