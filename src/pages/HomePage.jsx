@@ -61,8 +61,8 @@ const HomePage = () => {
             {/* Título del área */}
             <ul className="flex flex-col gap-6 px-6 sm:px-14 md:px-20 lg:px-48 xl:px-72 2xl:px-96">
               {carreras[area].map((carrera) => (
-                <div className="px-3 sm:px-8 md:px-20 lg:px-24 2xl:px-32">
-                  <Link to={`/carrera/${carrera._id}`} key={carrera._id}>
+                <div key={carrera._id} className="px-3 sm:px-8 md:px-20 lg:px-24 2xl:px-32">
+                  <Link to={`/carrera/${carrera._id}`} >
                     <ButtonName
                       carrera={carrera.name}
                       area={area}

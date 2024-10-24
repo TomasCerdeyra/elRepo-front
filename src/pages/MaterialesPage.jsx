@@ -27,8 +27,8 @@ const MaterialesPage = () => {
   }, [id]);
 
   if (loading) {
-    return <div class="h-screen flex items-center justify-center">
-    <p class="text-center font-semibold text-[#16353B]">Cargando Aportes...</p>
+    return <div className="h-screen flex items-center justify-center">
+    <p className="text-center font-semibold text-[#16353B]">Cargando Aportes...</p>
   </div>;
   }
 

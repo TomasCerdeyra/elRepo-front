@@ -23,7 +23,6 @@ const MaterialesList = ({ materiales }) => {
       if (respuesta.isConfirmed) {
         try {
           const data = await reportMaterial(materialID)
-          console.log(data);
           MySwal.fire(
             '¡Material denunciado!',
             data,

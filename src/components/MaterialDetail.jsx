@@ -10,10 +10,10 @@ const MaterialDetail = ({ material }) => {
             <p>Profesor: {material.profesor}</p>
 
             {material.tipo === 'imagen' && (
-                <img src={`http://localhost:8080/uploads/${material.rutaArchivo}`} alt={material.nombre} style={{ maxWidth: '100%' }} />
+                <img src={`http://localhost:8080/${material.rutaArchivo}`} alt={material.nombre} style={{ maxWidth: '100%' }} />
             )}
             {material.tipo === 'archivo' && (
-                <a href={`http://localhost:8080/uploads/${material.rutaArchivo}`} download target="_blank" rel="noopener noreferrer">
+                <a href={`http://localhost:8080/${material.rutaArchivo}`} download target="_blank" rel="noopener noreferrer">
                     <button className="hover:bg-green-400 hover:shadow-md transition duration-200 bg-green-600 text-white py-2 px-4 rounded">
                         Descargar archivo
                     </button>

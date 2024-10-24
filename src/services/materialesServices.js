@@ -49,8 +49,30 @@ export const reportMaterial = async (materialId) => {
 export const getMaterialesReportados = async () => {
   try {
     const response = await axios.get(`${API_URL}/reportes`)
+    console.log(response.data);
+    
     return response.data
   } catch (error) {
     throw new Error('Error al obtener los materiales denunciados')
+  }
+}
+
+//Eliminar denuncias
+export const deleteReports = async (materialId) => {
+  try {
+    const response = await axios.put(`${API_URL}/deletereport/${materialId}`)
+    return response.data
+  } catch (error) {
+    throw new Error('Error al eliminar las denuncias')
+  }
+}
+
+//Eliminar Material
+export const deleteMaterial = async (materiaId) => {
+  try {
+    const response = await axios.delete(`${API_URL}/${materiaId}`)
+    return response.data
+  } catch (error) {
+    throw new Error('Error al eliminar Material')
   }
 }

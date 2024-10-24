@@ -1,25 +1,76 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { getMaterialesReportados } from '../services/materialesServices'
+import { deleteMaterial, deleteReports, getMaterialesReportados } from '../services/materialesServices'
 import logoImagen from '../../public/img.png'
 import logoArchivo from '../../public/archivo.png'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 const MaterialesReportadosList = () => {
-
     const [materiales, setMateriales] = useState([])
+    const MySwal = withReactContent(Swal);
 
     useEffect(() => {
         const cargarMateriales = async () => {
             try {
                 const data = await getMaterialesReportados()
+
                 setMateriales(data)
             } catch (error) {
+                console.log(error);
+
                 console.log('Error al cargar los materiales denunciados');
             }
         }
         cargarMateriales()
     }, [])
+
+    const handleDeleteReport = async (materialId) => {
+        MySwal.fire({
+            title: '¿Seguro que este material no tiene contenido inapropiado?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí',
+            cancelButtonText: 'No'
+        }).then(async (respuesta) => {
+            if (respuesta.isConfirmed) {
+                try {
+                    const data = await deleteReports(materialId)
+                    MySwal.fire(data);
+                    // Actualizar la lista de materiales eliminando el material afectado
+                    setMateriales(materiales.filter((material) => material._id !== materialId));
+                } catch (error) {
+                    console.error('Error al eliminar denuncia del material:', error);
+                }
+            }
+        })
+    }
+
+    const handleDeleteMaterial = async (materialId) => {
+        MySwal.fire({
+            title: '¿Eliminar material por contenido inapropiado o incorrecto?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí',
+            cancelButtonText: 'No'
+        }).then(async (respuesta) => {
+            if (respuesta.isConfirmed) {
+                try {
+                    const data = await deleteMaterial(materialId)
+                    MySwal.fire(data);
+                    // Actualizar la lista de materiales eliminando el material afectado
+                    setMateriales(materiales.filter((material) => material._id !== materialId));
+                } catch (error) {
+                    console.error('Error al eliminar denuncia del material:', error);
+                }
+            }
+        })
+    }
 
 
     return (
@@ -37,8 +88,12 @@ const MaterialesReportadosList = () => {
                         <p className="flex-1 text-center  text-xs font-medium">{material.anio}</p>
 
                     </Link>
-                    <button className="rounded text-xm font-medium ring hover:ring-blue-600 hover:bg-blue-600 ring-blue-500 text-right bg-blue-500 text-white mr-5">Rechazar</button>
-                    <button className="rounded text-xm font-medium ring hover:ring-red-600 hover:bg-red-600 ring-red-500 text-right bg-red-500 text-white mr-5">Eliminar</button>
+                    <button onClick={() => handleDeleteReport(material._id)} className="rounded text-xm font-medium ring hover:ring-blue-600 hover:bg-blue-600 ring-blue-500 text-right bg-blue-500 text-white mr-5">
+                        Rechazar
+                    </button>
+                    <button onClick={() => handleDeleteMaterial(material._id)} className="rounded text-xm font-medium ring hover:ring-red-600 hover:bg-red-600 ring-red-500 text-right bg-red-500 text-white mr-5">
+                        Eliminar
+                    </button>
                 </div>
             ))}
         </ul>
