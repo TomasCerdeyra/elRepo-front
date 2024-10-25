@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { uploadMaterial } from "../../services/materialesServices";
 import { useParams } from "react-router-dom";
 import { validarAnio, validarArchivo, validarDescripcion, validarNombre, validarProfesor } from "../../utils/validations";
@@ -12,11 +13,16 @@ const AporteForm = () => {
   const [descripcion, setDescripcion] = useState("");
   const [profesor, setProfesor] = useState("");
   const [tipoSeleccionado, setTipoSeleccionado] = useState("Final");
-  const [archivo, setArchivo] = useState(null);
+  const [archivos, setArchivos] = useState([]);  // Ahora manejamos múltiples archivos
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
-  
+  const navigate = useNavigate();
   const MySwal = withReactContent(Swal); // Inicializamos SweetAlert2
+
+  // Manejar la selección de múltiples archivos
+  const handleFileChange = (e) => {
+    setArchivos(e.target.files);  // Guardamos múltiples archivos en el estado
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,7 +32,7 @@ const AporteForm = () => {
       validarNombre(nombre) ||
       validarAnio(anio) ||
       validarDescripcion(descripcion) ||
-      validarArchivo(archivo) ||
+      validarArchivo(archivos) ||  // Aquí también validamos los archivos
       validarProfesor(profesor);
     if (errorMessage) {
       setMessage(errorMessage);
@@ -39,7 +45,11 @@ const AporteForm = () => {
     formData.append("descripcion", descripcion);
     formData.append("profesor", profesor);
     formData.append("materia", id);
-    formData.append("archivo", archivo);
+
+    // Adjuntar múltiples archivos al FormData
+    for (let i = 0; i < archivos.length; i++) {
+      formData.append("archivos", archivos[i]);  // Cambiamos 'archivo' por 'archivos'
+    }
 
     setLoading(true);
     try {
@@ -51,12 +61,7 @@ const AporteForm = () => {
         confirmButtonText: "Entendido",
         confirmButtonColor: "#3085d6",
       }).then(() => {
-        // Limpiar los campos del formulario después de subir el aporte
-        setNombre("");
-        setAnio("");
-        setDescripcion("");
-        setProfesor("");
-        setArchivo(null);
+        navigate(`/materia/${id}`); 
       });
 
     } catch (error) {
@@ -136,12 +141,13 @@ const AporteForm = () => {
       </div>
       <div className="mb-2">
         <label htmlFor="archivo" className="block font-semibold">
-          Archivo:
+          Archivos:
         </label>
         <input
           type="file"
           id="archivo"
-          onChange={(e) => setArchivo(e.target.files[0])}
+          onChange={handleFileChange}
+          multiple  // Permitimos múltiples archivos
           className="w-full"
           required
         />

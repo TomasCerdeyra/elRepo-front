@@ -14,12 +14,12 @@ export const tiposPermitidos = [
 // Función para validar el archivo
 export const validarArchivo = (file) => {
   if (!file) {
-    return "Por favor, seleccione un archivo.";
+    return "Por favor, seleccione al menos un archivo.";
   }
-  const extension = file.name.split(".").pop().toLowerCase();
+  /* const extension = file.name.split(".").pop().toLowerCase();
   if (!tiposPermitidos.includes(`.${extension}`)) {
     return "El archivo seleccionado no es de un tipo permitido.";
-  }
+  } */
   return null;
 };
 

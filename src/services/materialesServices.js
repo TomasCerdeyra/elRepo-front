@@ -25,11 +25,12 @@ export const getMaterialById = async (materialId) => {
 //Subir un archivos
 export const uploadMaterial = async (formData) => {
   try {
-    const response = axios.post(API_URL, formData, {
+    const response = await axios.post(API_URL, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       }
     })
+    return response.data
   } catch (error) {
     throw new Error('Error al subir el material')
   }
