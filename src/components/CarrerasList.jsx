@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { getCarreras, deleteCarrera } from "../services/carrerasServices"; 
+import { getCarreras, deleteCarrera } from "../services/carrerasServices";
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { Link } from "react-router-dom";
 
 const CarrerasList = () => {
   const [carreras, setCarreras] = useState([]);
@@ -11,8 +12,8 @@ const CarrerasList = () => {
   useEffect(() => {
     const cargarCarreras = async () => {
       try {
-        const data = await getCarreras(); 
-        setCarreras(data); 
+        const data = await getCarreras();
+        setCarreras(data);
       } catch (error) {
         console.log("Error al cargar las carreras");
       }
@@ -35,19 +36,14 @@ const CarrerasList = () => {
     }).then(async (respuesta) => {
       if (respuesta.isConfirmed) {
         try {
-          await deleteCarrera(id);
+          const data = await deleteCarrera(id);
           setCarreras(carreras.filter(carrera => carrera._id !== id));
 
-          MySwal.fire(
-            '¡Carrera eliminada!',
-            'La carrera ha sido eliminada correctamente.',
-            'success'
-          );
+          MySwal.fire(data);
         } catch (error) {
-          console.error('Error al eliminar la carrera:', error);
           MySwal.fire(
             'Error',
-            'Hubo un problema al eliminar la carrera.',
+            error.message,
             'error'
           );
         }
@@ -60,8 +56,11 @@ const CarrerasList = () => {
       {carreras.map((carrera) => (
         <div key={carrera._id} className="hover:bg-[#4F847C] hover:shadow-md transition duration-200 bg-[#ffff] p-3 m-2 flex items-center justify-between gap-5">
           <p className="flex-1 font-semibold text-2xl">{carrera.name}</p>
-          <button 
-            className="rounded text-xs font-medium ring ring-red-500 text-right bg-red-500 text-white mr-5" 
+          <Link to={`/admin/actualizarcarrera/${carrera._id}`} className="rounded text-xs font-medium ring ring-green-500 text-right bg-green-500 text-white mr-5">
+            Actualizar
+          </Link>
+          <button
+            className="rounded text-xs font-medium ring ring-red-500 text-right bg-red-500 text-white mr-5"
             onClick={() => handleDelete(carrera._id)}>
             Eliminar
           </button>

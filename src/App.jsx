@@ -14,8 +14,7 @@ import SubirAportePage from "./pages/SubirAportePage"
 import { NewCarrera } from "./pages/Admin/Carreras/NewCarrera";
 import ErrorPage from "./pages/ErrorPage";
 import ActualizarMateria from "./pages/Admin/Materias/ActualizarMateria";
-
-
+import ActaulizarCarrera from "./pages/Admin/Carreras/ActaulizarCarrera"
 
 
 function App() {
@@ -30,12 +29,15 @@ function App() {
           {/* Admin */}
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/admin/gestionaportes" element={<GestionAportes />} />{/* Gestion de Aportes (AdminPage)*/}
+
           <Route path="/admin/gestioncarreras" element={<GestionCarreras />} />{/* Gestion de Carreras (AdminPage)*/}
+          <Route path="/admin/actualizarcarrera/:id" element={<ActaulizarCarrera />}/>
+          <Route path="/admin/agregarcarreras" element={<NewCarrera />} />{/* Agregar carrera (GestionCarreras)*/}
 
           <Route path="/admin/gestionmaterias" element={<MateriaProvider> <GestionMaterias /> </MateriaProvider>} />{/* Gestion de Materias (AdminPage)*/}
           <Route path="/admin/actualizarmateria/" element={<MateriaProvider> <ActualizarMateria /> </MateriaProvider>} />{/* Agregar materia (GestionMaterias)*/}
 
-          <Route path="/admin/agregarcarreras" element={<NewCarrera />} />{/* Agregar carrera (GestionCarreras)*/}
+         
           {/* Admin */}
           {/* Principal */}
           <Route path="/home" element={<HomePage />} />
