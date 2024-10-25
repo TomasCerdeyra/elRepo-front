@@ -10,14 +10,17 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
 export const GestionMaterias = () => {
-  const MySwal = withReactContent(Swal)
+  const MySwal = withReactContent(Swal);
   const [nameMateria, setNameMateria] = useState("");
   const [carrerasDisponibles, setCarrerasDisponibles] = useState([]);
 
-  const { materia, buscarMateriaPorNombre, setMateria } = useMateria()
+  const { materia, buscarMateriaPorNombre, setMateria } = useMateria();
 
   useEffect(() => {
     cargarCarreras();
+
+    // Limpiar el estado de la materia cuando se carga la página
+    setMateria(null);
   }, []);
 
   const cargarCarreras = async () => {
@@ -31,7 +34,7 @@ export const GestionMaterias = () => {
 
   const handleSearchSubmit = async (e) => {
     e.preventDefault();
-    await buscarMateriaPorNombre(nameMateria)
+    await buscarMateriaPorNombre(nameMateria);
   };
 
   const handleDelete = async (id) => {
@@ -41,7 +44,7 @@ export const GestionMaterias = () => {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí',
+      confirmButtonText: 'Sí, eliminar',
       cancelButtonText: 'No'
     }).then(async (respuesta) => {
       if (respuesta.isConfirmed) {
@@ -50,15 +53,15 @@ export const GestionMaterias = () => {
           console.log(response);
           setMateria(null);
           MySwal.fire(
-            '¡Materia Eliminada Correctamente!',
+            '¡Carrera eliminada!',
+            'La carrera ha sido eliminada correctamente.',
             'success'
           );
-
         } catch (error) {
-          console.error('Error al denunciar el material:', error);
+          console.error('Error al eliminar la materia', error);
         }
       }
-    })
+    });
   };
 
   return (
@@ -70,41 +73,61 @@ export const GestionMaterias = () => {
         </h1>
         <div className="h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
 
-        {/* Formulario de Búsqueda de Materia */}
-        <form onSubmit={handleSearchSubmit} className="mb-6">
-          <label className="block">Buscar Materia Para Eliminar o Actualizar</label>
-          <input
-            type="text"
-            value={nameMateria}
-            onChange={(e) => setNameMateria(e.target.value)}
-            className="border p-2 w-full"
-          />
-          <button type="submit" className="bg-blue-500 text-white py-2 px-4 rounded mt-2">
-            Buscar
-          </button>
-        </form>
+        <div className="flex flex-col items-center min-h-screen bg-gray-100 py-10">
 
-        {/* Mostrar Materia Encontrada */}
-        {materia && (
-          <div className="p-4 bg-white shadow-md rounded mb-6">
-            <h3 className="text-lg font-bold">{materia.name}</h3>
+          {/* Formulario de Búsqueda */}
+          <h2 className='text-[#16353B] md:py-1 sm:px-32 text-1xl sm:text-2xl lg:text-3xl xl:text-3xl text-center font-normal font-sans'>
+            ACTUALIZAR O ELIMINAR MATERIA:
+          </h2>
+
+          <form onSubmit={handleSearchSubmit} className="mb-4 bg-white p-6 rounded shadow-md w-full max-w-lg mx-auto">
+            <label className="block mb-2 text-gray-700 font-bold">Buscar Materia</label>
+            <input
+              type="text"
+              value={nameMateria}
+              onChange={(e) => setNameMateria(e.target.value)}
+              className="border p-2 w-full mb-4"
+            />
             <button
-              onClick={() => handleDelete(materia._id)}
-              className="bg-red-500 text-white py-2 px-4 rounded mt-2 mr-2"
+              type="submit"
+              className="hover:bg-[#3b6b5e] hover:shadow-md transition duration-200 bg-[#4F847C] text-white py-2 px-4 rounded w-full"
             >
-              Eliminar
+              Buscar
             </button>
-            <Link to={`/admin/actualizarmateria/`} className="bg-yellow-500 text-white py-2 px-4 rounded mt-2">
-              Actualizar
-            </Link>
-          </div>
-        )}
+          </form>
 
-        {/* Formulario de Crear Materia */}
-        <MateriaForm
-          onSubmit={createMateria}
-          carrerasDisponibles={carrerasDisponibles}
-        />
+          {/* Mostrar Materia Encontrada */}
+          {materia && (
+            <div className="bg-white p-6 rounded shadow-md w-full max-w-lg mx-auto mb-4">
+              <h3 className="text-lg font-bold mb-4">{materia.name}</h3>
+              <div className="flex justify-between">
+                <button
+                  onClick={() => handleDelete(materia._id)}
+                  className="rounded font-medium hover:ring-red-600 hover:bg-red-600 ring-red-500 text-right bg-red-500 text-white px-5 py-1"
+                >
+                  Eliminar
+                </button>
+                <Link
+                  to={`/admin/actualizarmateria/`}
+                  className="rounded font-medium hover:ring-blue-600 hover:bg-blue-600 ring-blue-500 text-right bg-blue-500 text-white px-5 py-1"
+                >
+                  Actualizar
+                </Link>
+              </div>
+            </div>
+          )}
+
+          {/* Formulario de Crear Materia */}
+          <h2 className='text-[#16353B] md:py-1 sm:px-32 text-1xl sm:text-2xl lg:text-3xl xl:text-3xl text-center font-normal font-sans mt-4'>
+            AÑADIR MATERIA:
+          </h2>
+
+          <MateriaForm
+            onSubmit={createMateria}
+            carrerasDisponibles={carrerasDisponibles}
+            className="mb-4" // Puedes agregar una clase aquí si deseas un margen en la parte inferior
+          />
+        </div>
       </div>
       <Footer />
     </div>

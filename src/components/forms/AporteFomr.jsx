@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { uploadMaterial } from "../../services/materialesServices";
 import { useParams } from "react-router-dom";
 import { validarAnio, validarArchivo, validarDescripcion, validarNombre, validarProfesor } from "../../utils/validations";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const AporteForm = () => {
   const { id } = useParams();
@@ -13,6 +15,8 @@ const AporteForm = () => {
   const [archivo, setArchivo] = useState(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  
+  const MySwal = withReactContent(Swal); // Inicializamos SweetAlert2
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,7 +27,7 @@ const AporteForm = () => {
       validarAnio(anio) ||
       validarDescripcion(descripcion) ||
       validarArchivo(archivo) ||
-      validarProfesor(profesor)
+      validarProfesor(profesor);
     if (errorMessage) {
       setMessage(errorMessage);
       return;
@@ -39,14 +43,22 @@ const AporteForm = () => {
 
     setLoading(true);
     try {
-
       await uploadMaterial(formData);
-      setMessage("Archivo subido exitosamente");
-      setNombre("");
-      setAnio("");
-      setDescripcion("");
-      setProfesor("");
-      setArchivo(null);
+      // Mostrar mensaje de éxito con SweetAlert2
+      MySwal.fire({
+        title: "¡El aporte se ha subido exitosamente!",
+        icon: "success",
+        confirmButtonText: "Entendido",
+        confirmButtonColor: "#3085d6",
+      }).then(() => {
+        // Limpiar los campos del formulario después de subir el aporte
+        setNombre("");
+        setAnio("");
+        setDescripcion("");
+        setProfesor("");
+        setArchivo(null);
+      });
+
     } catch (error) {
       setMessage("Error al subir el archivo");
     }
@@ -135,14 +147,13 @@ const AporteForm = () => {
         />
       </div>
       <div className="flex justify-center">
-      <button
-        type="submit"
-        className="hover:bg-green-400 hover:shadow-md transition duration-200 bg-green-600 text-white py-2 px-6 rounded mt-5"
-        disabled={loading}
-      >
-        
-        {loading ? "Subiendo..." : "Subir Aporte"}
-      </button>
+        <button
+          type="submit"
+          className="hover:bg-green-400 hover:shadow-md transition duration-200 bg-green-600 text-white py-2 px-6 rounded mt-5"
+          disabled={loading}
+        >
+          {loading ? "Subiendo..." : "Subir Aporte"}
+        </button>
       </div>
       {message && <p className="mt-2 text-red-500">{message}</p>}
     </form>
