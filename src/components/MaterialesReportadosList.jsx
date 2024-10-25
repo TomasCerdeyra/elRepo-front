@@ -84,8 +84,8 @@ const MaterialesReportadosList = () => {
                             alt={material.tipo === 'imagen' ? 'icono Imagen' : 'Icono Archivo'}
                             className="h-9 sm:h-9 md:h-12 lg:h-16 xl:h-20 object-contain"
                         />
-                        <p className="flex-1  font-semibold">{material.nombre}</p>
-                        <p className="flex-1 text-center  text-xs font-medium">{material.anio}</p>
+                        <p className="flex-1 font-semibold text-xl">{material.nombre}</p>
+                        <p className="flex-1 text-center  text-lg font-medium"> Año: {material.anio}</p>
 
                     </Link>
                     <button onClick={() => handleDeleteReport(material._id)} className="rounded text-xm font-medium ring hover:ring-blue-600 hover:bg-blue-600 ring-blue-500 text-right bg-blue-500 text-white mr-5">
