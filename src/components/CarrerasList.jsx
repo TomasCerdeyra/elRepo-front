@@ -39,7 +39,11 @@ const CarrerasList = () => {
           const data = await deleteCarrera(id);
           setCarreras(carreras.filter(carrera => carrera._id !== id));
 
-          MySwal.fire(data);
+          MySwal.fire({
+            title: '¡Carrera Eliminada Correctamente!',
+            icon: 'success', 
+            confirmButtonText: 'Aceptar'
+        });
         } catch (error) {
           MySwal.fire(
             'Error',

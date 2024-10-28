@@ -13,7 +13,11 @@ export const NewCarrera = () => {
   const handleSubmit = async (newCarrera) => {
     try {
       const data = await createCarrera(newCarrera)
-      MySwal.fire(data)
+      MySwal.fire({
+        title: '¡Carrera creada correctamente!',
+        icon: 'success', 
+        confirmButtonText: 'Aceptar'
+    });
     } catch (error) {
       console.log(error);
     }
@@ -27,7 +31,10 @@ export const NewCarrera = () => {
         <div className="h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
 
         <div className="flex justify-center mt-6">
-          <ActualizarCarrearaForm onSubmit={handleSubmit}/>
+          <ActualizarCarrearaForm 
+          onSubmit={handleSubmit}
+          
+          />
         </div>
       </div>
       <Footer />

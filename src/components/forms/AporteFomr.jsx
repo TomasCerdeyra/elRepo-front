@@ -71,7 +71,7 @@ const AporteForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 border rounded mx-20">
+    <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-lg mx-auto mb-4">
       <div className="mb-2">
         <label htmlFor="tipo" className="block font-semibold">
           Tipo de Aporte:

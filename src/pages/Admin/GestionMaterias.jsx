@@ -125,7 +125,7 @@ export const GestionMaterias = () => {
           <MateriaForm
             onSubmit={createMateria}
             carrerasDisponibles={carrerasDisponibles}
-            className="mb-4" // Puedes agregar una clase aquí si deseas un margen en la parte inferior
+            className="mb-4" 
           />
         </div>
       </div>

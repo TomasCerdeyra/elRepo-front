@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Swal from 'sweetalert2'; // Importa SweetAlert
+import Swal from 'sweetalert2'; 
 
 const MateriaForm = ({ initialData = {}, onSubmit, carrerasDisponibles = [] }) => {
   const [name, setName] = useState(initialData.name || "");
@@ -24,7 +24,6 @@ const MateriaForm = ({ initialData = {}, onSubmit, carrerasDisponibles = [] }) =
     
     onSubmit({ name, carreras: carrerasSeleccionadas });
     
-    // Mostrar el mensaje de éxito después de crear la materia
     Swal.fire({
       title: 'Materia Creada Correctamente',
       icon: 'success',
@@ -33,8 +32,8 @@ const MateriaForm = ({ initialData = {}, onSubmit, carrerasDisponibles = [] }) =
     });
 
     // Limpiar el formulario después de enviar
-    setName(""); // Vaciar el campo de nombre
-    setCarrerasSeleccionadas([]); // Deseleccionar todos los checkboxes
+    setName(""); 
+    setCarrerasSeleccionadas([]); 
   };
 
   return (

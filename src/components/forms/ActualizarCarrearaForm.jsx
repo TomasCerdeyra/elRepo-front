@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
+
 const ActualizarCarrearaForm = ({ initialData = {}, onSubmit }) => {
     //Nueva carrera
     const [nameNewCarrera, setNameNewCarrera] = useState("")
@@ -27,7 +28,7 @@ const ActualizarCarrearaForm = ({ initialData = {}, onSubmit }) => {
 
     const handleChangeArea = (e) => {
         const carreraArea = e.target.value
-        
+
         if (initialData.name) {
             setAreaUpdateCarrera(carreraArea)
         } else {
@@ -47,9 +48,10 @@ const ActualizarCarrearaForm = ({ initialData = {}, onSubmit }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-24 pt-6 pb-8 mb-4">
+
+        <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-lg mx-auto mb-4">
             <div className="mb-4 ">
-                <label className="block text-gray-700 text-sm font-bold mb-2 px-20" htmlFor="nombreCarrera">
+                <label className="block text-gray-700 text-sm font-bold mb-2 " htmlFor="nombreCarrera">
                     Nombre de la Carrera
                 </label>
                 <input
@@ -88,12 +90,13 @@ const ActualizarCarrearaForm = ({ initialData = {}, onSubmit }) => {
             <div className="flex justify-center">
                 <button
                     type="submit"
-                    className="hover:bg-green-500 hover:shadow-md transition duration-200 bg-green-600 text-white py-2 px-4 rounded"
-                >
-                    Añadir Carrera
+                    className="hover:bg-green-500 hover:shadow-md transition duration-200 bg-green-600 text-white py-2 px-4 rounded">
+                     {initialData._id ? "Actualizar Carrera" : "Crear Carrera"}
+
                 </button>
             </div>
         </form>
+
     )
 }
 
