@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import logoImagen from '../../public/img.png';
-import logoArchivo from '../../public/archivo.png';
+import logoImagen from '../assets/img.png';
+import logoArchivo from '../assets/archivo.png';
 
 const MaterialesList = ({ materiales }) => {
+
+  useEffect(()=> {})
+
   return (
     <div className="mx-5 lg:mx-20 xl:mx-20">
       {materiales.length === 0 ? (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { deleteMaterial, deleteReports, getMaterialesReportados } from '../services/materialesServices';
-import logoImagen from '../../public/img.png';
-import logoArchivo from '../../public/archivo.png';
+import logoImagen from '../assets/img.png';
+import logoArchivo from '../assets/archivo.png';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';

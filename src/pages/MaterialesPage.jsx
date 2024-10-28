@@ -5,20 +5,20 @@ import MaterialesList from "../components/MaterialesList";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { AppContext } from "../context/AppContext";
+import { filtrosMateriales } from "../utils/conts";
 
 const MaterialesPage = () => {
   const { id } = useParams();
   const { materia } = useContext(AppContext);
   const [materiales, setMateriales] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [filter, setFilter] = useState(''); 
-  const [showDropdown, setShowDropdown] = useState(false); 
+  const [filter, setFilter] = useState('');
+  const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
     const cargarMateriales = async () => {
       try {
         const data = await getMaterilesByMateria(id);
-        console.log("Datos cargados:", data); // Verificar que los datos se reciban correctamente
         setMateriales(data);
         setLoading(false);
       } catch (error) {
@@ -34,10 +34,12 @@ const MaterialesPage = () => {
     setShowDropdown(false);
   };
 
-  // Filtrado de materiales según el tipo seleccionado
-  const filteredMaterials = filter
-    ? materiales.filter((material) => material.tipo === filter)
-    : materiales;
+  // Filtro los materiales
+  const filteredMaterials = materiales.filter((material) => {
+    const tipoDeMaterial = material.nombre.split(" - ")[0];
+    return filter === '' || filter === 'Todos' || tipoDeMaterial === filter;
+  });
+
 
   if (loading) {
     return (
@@ -71,28 +73,18 @@ const MaterialesPage = () => {
             </button>
             {showDropdown && (
               <div className="absolute mt-2 w-full bg-white border rounded shadow-lg">
-                <button onClick={() => handleFilterChange('Final')} className="block w-full text-left px-4 py-2 hover:bg-gray-100">
-                  Final
-                </button>
-                <button onClick={() => handleFilterChange('Parcial')} className="block w-full text-left px-4 py-2 hover:bg-gray-100">
-                  Parcial
-                </button>
-                <button onClick={() => handleFilterChange('Trabajo Practico')} className="block w-full text-left px-4 py-2 hover:bg-gray-100">
-                  Trabajo Práctico
-                </button>
-                <button onClick={() => handleFilterChange('Apunte')} className="block w-full text-left px-4 py-2 hover:bg-gray-100">
-                  Apunte
-                </button>
-                <button onClick={() => handleFilterChange('')} className="block w-full text-left px-4 py-2 hover:bg-gray-100">
-                  Todos
-                </button>
+                {filtrosMateriales.map(filtro => (
+                  <button key={filtro} onClick={() => handleFilterChange(filtro)} className="block w-full text-left px-4 py-2 hover:bg-gray-100">
+                    {filtro}
+                  </button>
+                ))}
+
               </div>
             )}
           </div>
         </div>
         <div className="h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
 
-        {/* Renderiza la lista filtrada */}
         <MaterialesList materiales={filteredMaterials} />
       </div>
       <Footer />

@@ -1,25 +1,18 @@
-export const tiposPermitidos = [
-  ".jpg",
-  ".jpeg",
-  ".png",
-  ".gif",
-  ".svg",
-  ".pdf",
-  ".doc",
-  ".docx",
-  ".ppt",
-  ".pptx",
-];
+import { tiposPermitidos } from "./conts";
 
 // Función para validar el archivo
-export const validarArchivo = (file) => {
-  if (!file) {
+export const validarArchivos = (files) => {
+  if (!files || files.length === 0) {
     return "Por favor, seleccione al menos un archivo.";
   }
-  /* const extension = file.name.split(".").pop().toLowerCase();
-  if (!tiposPermitidos.includes(`.${extension}`)) {
-    return "El archivo seleccionado no es de un tipo permitido.";
-  } */
+
+  for (const file of files) {
+    const extension = file.name.split(".").pop().toLowerCase();
+    if (!tiposPermitidos.includes(`.${extension}`)) {
+      return `El archivo ${file.name} no es de un tipo permitido.`;
+    }
+  }
+  
   return null;
 };
 

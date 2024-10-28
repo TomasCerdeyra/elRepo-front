@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { uploadMaterial } from "../../services/materialesServices";
 import { useParams } from "react-router-dom";
-import { validarAnio, validarArchivo, validarDescripcion, validarNombre, validarProfesor } from "../../utils/validations";
+import { validarAnio, validarArchivos, validarDescripcion, validarNombre, validarProfesor } from "../../utils/validations";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 
@@ -32,7 +32,7 @@ const AporteForm = () => {
       validarNombre(nombre) ||
       validarAnio(anio) ||
       validarDescripcion(descripcion) ||
-      validarArchivo(archivos) ||  // Aquí también validamos los archivos
+      validarArchivos(archivos) ||  // Aquí también validamos los archivos
       validarProfesor(profesor);
     if (errorMessage) {
       setMessage(errorMessage);
