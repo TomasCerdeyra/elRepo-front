@@ -21,32 +21,36 @@ const Navbar = () => {
       <div className="flex justify-between items-center p-4 bg-white">
 
         {/* Mostrar el botón "Volver" solo si la ruta no es '/' (loguin) */}
-        {location.pathname !== '/' && (
-          <button
-            onClick={handleBack}
-            className="hover:bg-[#3b6b5e] hover:shadow-md transition duration-200 rounded text-xs font-medium bg-[#4F847C] text-white py-1 px-3 ml-8"
-          >
-            Volver atrás
-          </button>
-        )}
-        <div className="flex-grow flex justify-center ml-24">
+        <div className="flex md:h-16 lg:h-24 justify-center items-center">
           {location.pathname !== '/' ? (
             <Link to="/home">
-              <img src={logo1} className="h-20 md:h-16 lg:h-24 xl:h-24 -mt-3 -ml-12" alt="Logo" />
+              <img src={logo1} className="w-40 object-contain sm:object-fill sm:h-20 " alt="Logo" />
             </Link>
           ) : (
-            <img src={logo1} className="h-20 md:h-16 lg:h-24 xl:h-24 -mt-3 -ml-12" alt="Logo" />
+            <img src={logo1} className="object-contain" alt="Logo" />
+          )}
+        </div>
+        <div className='flex flex-col gap-2'>
+          {location.pathname !== '/' && (
+            <div className="">
+              <button
+                onClick={handleLogout}
+                className="hover:bg-red-700 hover:shadow-md transition duration-200 rounded text-xs font-medium bg-red-500 text-white py-1 px-1 "
+              >
+                Cerrar Sesión
+              </button>
+            </div>
+          )}
+          {location.pathname !== '/' && location.pathname !== '/home' && location.pathname !== '/admin' && (
+            <button
+              onClick={handleBack}
+              className="hover:bg-[#3b6b5e] hover:shadow-md transition duration-200 rounded text-xs font-medium bg-[#4F847C] text-white py-1 px-1 "
+            >
+              Volver atrás
+            </button>
           )}
         </div>
 
-        <div className="flex-shrink-0">
-          <button
-            onClick={handleLogout}
-            className="hover:bg-red-700 hover:shadow-md transition duration-200 rounded text-xs font-medium bg-red-500 text-white py-1 px-3 mr-8"
-          >
-            Cerrar Sesión
-          </button>
-        </div>
       </div>
       <div className="w-full h-1 bg-[#959500] -mt-3"></div>
       <div className="w-full h-1 bg-[#16353B] mt-1"></div>
