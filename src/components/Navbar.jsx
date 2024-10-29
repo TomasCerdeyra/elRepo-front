@@ -27,7 +27,7 @@ const Navbar = () => {
               <img src={logo1} className="w-40 object-contain sm:object-fill sm:h-20 " alt="Logo" />
             </Link>
           ) : (
-            <img src={logo1} className="object-contain" alt="Logo" />
+            <img src={logo1} className="object-contain px-20 sm:px-40 sm:object-fill md:h-20 md:px-0 " alt="Logo" />
           )}
         </div>
         <div className='flex flex-col gap-2'>
