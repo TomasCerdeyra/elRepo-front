@@ -28,7 +28,7 @@ const ActualizarMateria = () => {
     const handleSubmit = async (data) => {
         try {
             await updateMateria(materia._id, data);
-            const respuesta = await showSuccessAlert('Material Actualizado Correctamente','success', '¡Se te Rediregira al Gestor de Materias!')
+            const respuesta = await showSuccessAlert('Materia Actualizada Correctamente','success', '¡Se te Rediregira al Gestor de Materias!')
 
             if (respuesta.isConfirmed) {
                 navigate("/admin/gestionmaterias");
