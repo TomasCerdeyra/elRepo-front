@@ -31,7 +31,7 @@ const MaterialesList = ({ materiales }) => {
           {materiales.map((material) => {
             const { src, alt } = seleccionarLogo(material.tipo)
             return (
-              <div key={material._id} className="hover:bg-[#4F847C] hover:shadow-md transition duration-200 bg-[#ffff] m-2 flex items-center justify-between">
+              <div key={material._id} className="hover:bg-[#EFF3F5] ring-4 ring-[#EFF3F5] hover:ring-[#4F847C] hover:shadow-md transition duration-200 bg-[#ffff] m-2 flex items-center justify-between">
                 <Link to={`/material/${material._id}`} className="flex items-center justify-between w-full p-3 gap-3">
                   <img
                     src={src}
