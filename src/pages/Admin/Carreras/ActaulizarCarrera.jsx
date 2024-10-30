@@ -2,14 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { showSuccessAlert } from '../../../utils/alerts.js';
 import ActualizarCarrearaForm from '../../../components/forms/ActualizarCarrearaForm'
 import { getCarreraById, updateCarreraById } from '../../../services/carrerasServices.js'
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Footer from '../../../components/Footer.jsx';
 import Navbar from '../../../components/Navbar.jsx';
 
 const ActaulizarCarrera = () => {
     const [carrera, setCarrera] = useState({ name: '', area: '' })
     const { id } = useParams()
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getCarrera = async () => {

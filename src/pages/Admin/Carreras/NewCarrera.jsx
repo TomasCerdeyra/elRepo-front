@@ -5,6 +5,7 @@ import Footer from '../../../components/Footer';
 import { showSuccessAlert } from '../../../utils/alerts';
 import { createCarrera } from '../../../services/carrerasServices';
 import ActualizarCarrearaForm from '../../../components/forms/ActualizarCarrearaForm';
+import {useNavigate} from 'react-router-dom';
 
 export const NewCarrera = () => {
   const navigate = useNavigate()
