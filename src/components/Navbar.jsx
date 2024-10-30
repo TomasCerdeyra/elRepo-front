@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo1 from '../assets/logo1.png';
 
-
 const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();

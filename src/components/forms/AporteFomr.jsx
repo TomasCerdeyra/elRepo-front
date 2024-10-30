@@ -3,8 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { uploadMaterial } from "../../services/materialesServices";
 import { useParams } from "react-router-dom";
 import { validarAnio, validarArchivos, validarDescripcion, validarNombre, validarProfesor } from "../../utils/validations";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import { showSuccessAlert } from "../../utils/alerts";
 
 const AporteForm = () => {
   const { id } = useParams();
@@ -17,7 +16,6 @@ const AporteForm = () => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
-  const MySwal = withReactContent(Swal); // Inicializamos SweetAlert2
 
   // Manejar la selección de múltiples archivos
   const handleFileChange = (e) => {
@@ -55,14 +53,11 @@ const AporteForm = () => {
     try {
       await uploadMaterial(formData);
       // Mostrar mensaje de éxito con SweetAlert2
-      MySwal.fire({
-        title: "¡El aporte se ha subido exitosamente!",
-        icon: "success",
-        confirmButtonText: "Entendido",
-        confirmButtonColor: "#3085d6",
-      }).then(() => {
-        navigate(`/materia/${id}`); 
-      });
+      const respuesta = await showSuccessAlert("¡El aporte se ha subido exitosamente!", "success" )
+      
+      if(respuesta.isConfirmed){
+        navigate(`/materia/${id}`);
+      }
 
     } catch (error) {
       setMessage("Error al subir el archivo");

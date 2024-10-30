@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getCarreras, deleteCarrera } from "../services/carrerasServices";
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
+import { showConfirmationAlert, showSuccessAlert } from "../utils/alerts";
 import { Link } from "react-router-dom";
 
 const CarrerasList = () => {
   const [carreras, setCarreras] = useState([]);
-  const MySwal = withReactContent(Swal);
 
   // Obtener lista de carreras
   useEffect(() => {
@@ -23,36 +21,18 @@ const CarrerasList = () => {
 
   // Función para eliminar carrera
   const handleDelete = async (id) => {
-    // Alerta de confirmación antes de eliminar
-    MySwal.fire({
-      title: '¿Estás seguro de eliminar esta carrera?',
-      text: "Si la eliminas, no podrás recuperarla. ¿Deseas continuar?",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar'
-    }).then(async (respuesta) => {
+
+    const respuesta = await showConfirmationAlert('¿Estás seguro de eliminar esta carrera?', 'Si la eliminas, no podrás recuperarla. ¿Deseas continuar?')
       if (respuesta.isConfirmed) {
         try {
           const data = await deleteCarrera(id);
           setCarreras(carreras.filter(carrera => carrera._id !== id));
 
-          MySwal.fire({
-            title: '¡Carrera Eliminada Correctamente!',
-            icon: 'success', 
-            confirmButtonText: 'Aceptar'
-        });
+          showSuccessAlert('¡Carrera Eliminada Correctamente!', 'success')
         } catch (error) {
-          MySwal.fire(
-            'Error',
-            error.message,
-            'error'
-          );
+          showSuccessAlert('Error', 'error', error.message)
         }
       }
-    });
   };
 
   return (

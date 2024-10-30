@@ -1,38 +1,28 @@
 import React, { useState } from "react";
 import { reportMaterial } from "../services/materialesServices";
-import withReactContent from "sweetalert2-react-content";
-import Swal from "sweetalert2";
+import { showConfirmationAlert, showSuccessAlert } from "../utils/alerts";
 
 const MaterialDetail = ({ material }) => {
-  const MySwal = withReactContent(Swal);
   const [denunciasRealizadas, setDenunciasRealizadas] = useState(new Set()); // Almacena los IDs de los materiales denunciados
 
-  const handleDenuncia = (materialID) => {
+  const handleDenuncia = async (materialID) => {
     if (denunciasRealizadas.has(materialID)) {
-      MySwal.fire('Ya has denunciado este aporte', 'No puedes denunciar el mismo aporte más de una vez.', 'warning');
+      showSuccessAlert('Ya has denunciado este aporte', "warning")
       return;
     }
 
-    MySwal.fire({
-      title: '¿Este material contiene contenido erróneo u ofensivo?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí',
-      cancelButtonText: 'No',
-    }).then(async (respuesta) => {
-      if (respuesta.isConfirmed) {
-        try {
-          const data = await reportMaterial(materialID);
-          MySwal.fire('¡Material denunciado!', data, 'success');
-          
-          setDenunciasRealizadas((prev) => new Set(prev).add(materialID)); // Agregar el ID a la lista de denunciados
-        } catch (error) {
-          console.error('Error al denunciar el material:', error);
-        }
+    const respuesta = await showConfirmationAlert('¿Este material contiene contenido erróneo u ofensivo?')
+
+    if (respuesta.isConfirmed) {
+      try {
+        const data = await reportMaterial(materialID);
+        showSuccessAlert(`¡${data}!`, "success")
+
+        setDenunciasRealizadas((prev) => new Set(prev).add(materialID)); // Agregar el ID a la lista de denunciados
+      } catch (error) {
+        console.error('Error al denunciar el material:', error);
       }
-    });
+    }
   };
 
   return (

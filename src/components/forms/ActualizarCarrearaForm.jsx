@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-
 const ActualizarCarrearaForm = ({ initialData = {}, onSubmit }) => {
     //Nueva carrera
     const [nameNewCarrera, setNameNewCarrera] = useState("")
@@ -91,7 +90,7 @@ const ActualizarCarrearaForm = ({ initialData = {}, onSubmit }) => {
                 <button
                     type="submit"
                     className="hover:bg-green-500 hover:shadow-md transition duration-200 bg-green-600 text-white py-2 px-4 rounded">
-                     {initialData._id ? "Actualizar Carrera" : "Crear Carrera"}
+                     {initialData.name ? "Actualizar Carrera" : "Crear Carrera"}
 
                 </button>
             </div>

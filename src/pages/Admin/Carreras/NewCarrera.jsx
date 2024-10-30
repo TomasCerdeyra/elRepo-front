@@ -1,23 +1,15 @@
 import React, { useState } from 'react';
 import Navbar from '../../../components/Navbar';
 import Footer from '../../../components/Footer';
-import Swal from 'sweetalert2';
-import withReactContent from 'sweetalert2-react-content';
+import { showSuccessAlert } from '../../../utils/alerts';
 import { createCarrera } from '../../../services/carrerasServices';
 import ActualizarCarrearaForm from '../../../components/forms/ActualizarCarrearaForm';
 
-
 export const NewCarrera = () => {
-  const MySwal = withReactContent(Swal)
-
   const handleSubmit = async (newCarrera) => {
     try {
       const data = await createCarrera(newCarrera)
-      MySwal.fire({
-        title: '¡Carrera creada correctamente!',
-        icon: 'success', 
-        confirmButtonText: 'Aceptar'
-    });
+      showSuccessAlert(`¡${data}!`, "success")
     } catch (error) {
       console.log(error);
     }

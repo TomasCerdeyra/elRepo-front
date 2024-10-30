@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import { showSuccessAlert } from '../../../utils/alerts.js';
 import ActualizarCarrearaForm from '../../../components/forms/ActualizarCarrearaForm'
 import { getCarreraById, updateCarreraById } from '../../../services/carrerasServices.js'
 import { useParams } from 'react-router-dom';
@@ -9,7 +8,6 @@ import Navbar from '../../../components/Navbar.jsx';
 
 const ActaulizarCarrera = () => {
     const [carrera, setCarrera] = useState({ name: '', area: '' })
-    const MySwal = withReactContent(Swal)
     const { id } = useParams()
 
     useEffect(() => {
@@ -30,11 +28,7 @@ const ActaulizarCarrera = () => {
     const handleSubmit = async (newCarrera) => {
         try {
             const data = await updateCarreraById(newCarrera, id);
-            MySwal.fire({
-                title: '¡Carrera Actualizada Correctamente!',
-                icon: 'success', 
-                confirmButtonText: 'Aceptar'
-            });
+            showSuccessAlert('¡Carrera Actualizada Correctamente!','success')
         } catch (error) {
             console.log(error);
         }

@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ButtonAdmins from "../components/buttons/ButtonAdmins";
-import { Link } from "react-router-dom";
 
 const AdminPage = () => {
   return (

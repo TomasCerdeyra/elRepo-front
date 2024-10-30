@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Swal from 'sweetalert2'; 
+import { showSuccessAlert } from '../../utils/alerts';
 
 const MateriaForm = ({ initialData = {}, onSubmit, carrerasDisponibles = [] }) => {
   const [name, setName] = useState(initialData.name || "");
@@ -23,14 +23,9 @@ const MateriaForm = ({ initialData = {}, onSubmit, carrerasDisponibles = [] }) =
     e.preventDefault();
     
     onSubmit({ name, carreras: carrerasSeleccionadas });
-    
-    Swal.fire({
-      title: 'Materia Creada Correctamente',
-      icon: 'success',
-      confirmButtonColor: '#3085d6',
-      confirmButtonText: 'Entendido',
-    });
 
+    showSuccessAlert('Materia Creada Correctamente', 'success')
+    
     // Limpiar el formulario después de enviar
     setName(""); 
     setCarrerasSeleccionadas([]); 

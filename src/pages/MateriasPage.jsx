@@ -6,7 +6,6 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { AppContext } from '../context/AppContext';
 
-
 const MateriasPage = () => {
   const { id } = useParams();
   const { carrera, logo, area } = useContext(AppContext)
