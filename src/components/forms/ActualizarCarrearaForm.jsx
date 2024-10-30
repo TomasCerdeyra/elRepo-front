@@ -4,7 +4,6 @@ const ActualizarCarrearaForm = ({ initialData = {}, onSubmit }) => {
     //Nueva carrera
     const [nameNewCarrera, setNameNewCarrera] = useState("")
     const [areaNewCarrea, setAreaNewCarrera] = useState("")
-
     //Actualizar Carrera
     const [nameUpdateCarrera, setNameUpdateCarrera] = useState(initialData.name || "")
     const [areaUpdateCarrera, setAreaUpdateCarrera] = useState(initialData.area || "")
