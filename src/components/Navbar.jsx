@@ -6,7 +6,7 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  //Funcion para desloguear
+  //Funcion para deslogear
   const handleLogout = () => {
     window.location.href = 'http://localhost:8080/api/auth/logout/'
   }
@@ -20,6 +20,7 @@ return (
     <div className="flex justify-between items-center p-4 bg-white">
       <div className="flex-1 flex justify-center items-center">
         <div className="flex justify-center items-center">
+         {/* Mostrar el botón "Volver" solo si la ruta no es '/' (login) */}
           {location.pathname !== '/' ? (
             <Link to="/home">
               <img src={logo1} className="ml-20 w-48 sm:w-56 md:w-64 lg:w-72 h-auto object-contain" alt="Logo" />
