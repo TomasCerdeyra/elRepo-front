@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { getMaterilesByMateria } from "../services/materialesServices";
-import MaterialesList from "../components/MaterialesList";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import { AppContext } from "../context/AppContext";
-import { filtrosMateriales } from "../utils/conts";
+import { getMaterilesByMateria } from "../../services/materialesServices";
+import MaterialesList from "../../components/lists/MaterialesList";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import { AppContext } from "../../context/AppContext";
+import { filtrosMateriales } from "../../utils/conts";
 
 const MaterialesPage = () => {
   const { id } = useParams();
@@ -36,7 +36,7 @@ const MaterialesPage = () => {
 
   // Filtro los materiales
   const filteredMaterials = materiales.filter((material) => {
-    const tipoDeMaterial = material.nombre.split(" - ")[0];
+    const tipoDeMaterial = material.tipoAporte;
     return filter === '' || filter === 'Todos' || tipoDeMaterial === filter;
   });
 

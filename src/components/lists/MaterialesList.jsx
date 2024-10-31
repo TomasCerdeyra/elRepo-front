@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { seleccionarLogo } from "../utils/functions";
+import { seleccionarLogo } from "../../utils/functions";
 
 const MaterialesList = ({ materiales }) => {
 

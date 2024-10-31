@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import { getMaterialById } from "../services/materialesServices";
-import MaterialDetail from "../components/MaterialDetail";
+import Footer from "../../../components/Footer";
+import Navbar from "../../../components/Navbar";
+import { getMaterialById } from "../../../services/materialesServices";
+import MaterialDetail from "../../../components/MaterialDetail";
 
 const MaterialPage = () => {
   const { id } = useParams(); // Obtener el ID del material desde la URL

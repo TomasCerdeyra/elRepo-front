@@ -22,7 +22,7 @@ export const validarNombre = (nombre) => {
     return "Por favor, ingrese un nombre.";
   }
   if (nombre.length > 50) {
-    return "El nombre del material no debe exceder los 50 caracteres.";
+    return "El nombre del material no debe exceder los 20 caracteres.";
   }
   return null;
 };
@@ -41,9 +41,6 @@ export const validarAnio = (anio) => {
 
 // validar la descripción
 export const validarDescripcion = (descripcion) => {
-  if (!descripcion) {
-    return "Por favor, ingrese una descripción.";
-  }
   if (descripcion.length > 500) {
     return "La descripción no debe exceder los 20 caracteres.";
   }

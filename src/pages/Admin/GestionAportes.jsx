@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import MaterialesReportadosList from '../../components/MaterialesReportadosList';
+import MaterialesReportadosList from '../../components/lists/MaterialesReportadosList';
 
 export const GestionAportes = () => {
     return (

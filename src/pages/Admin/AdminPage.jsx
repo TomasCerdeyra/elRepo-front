@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import ButtonAdmins from "../components/buttons/ButtonAdmins";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import ButtonAdmins from "../../components/buttons/ButtonAdmins";
 
 const AdminPage = () => {
   return (

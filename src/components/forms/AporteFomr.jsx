@@ -38,7 +38,8 @@ const AporteForm = () => {
     }
 
     const formData = new FormData();
-    formData.append("nombre", `${tipoSeleccionado} - ${nombre}`);
+    formData.append("tipoAporte", tipoSeleccionado);
+    formData.append("nombre", nombre);
     formData.append("anio", anio);
     formData.append("descripcion", descripcion);
     formData.append("profesor", profesor);
@@ -53,9 +54,9 @@ const AporteForm = () => {
     try {
       await uploadMaterial(formData);
       // Mostrar mensaje de éxito con SweetAlert2
-      const respuesta = await showSuccessAlert("¡El aporte se ha subido exitosamente!", "success" )
-      
-      if(respuesta.isConfirmed){
+      const respuesta = await showSuccessAlert("¡El aporte se ha subido exitosamente!", "success")
+
+      if (respuesta.isConfirmed) {
         navigate(`/materia/${id}`);
       }
 
@@ -111,7 +112,7 @@ const AporteForm = () => {
       </div>
       <div className="mb-2">
         <label htmlFor="descripcion" className="block font-semibold">
-          Descripción:
+          Descripción (Opcional):
         </label>
         <textarea
           id="descripcion"
@@ -119,7 +120,6 @@ const AporteForm = () => {
           onChange={(e) => setDescripcion(e.target.value)}
           className="w-full border p-2"
           rows="3"
-          required
         />
       </div>
       <div className="mb-2">
@@ -142,7 +142,7 @@ const AporteForm = () => {
           type="file"
           id="archivo"
           onChange={handleFileChange}
-          multiple  // Permitimos múltiples archivos
+          multiple
           className="w-full"
           required
         />

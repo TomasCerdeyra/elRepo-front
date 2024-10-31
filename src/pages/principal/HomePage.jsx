@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { getCarreras } from "../services/carrerasServices";
+import { getCarreras } from "../../services/carrerasServices";
 import { Link } from "react-router-dom";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import logos from "../services/logosServices";
-import ButtonName from "../components/buttons/ButtonName";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import logos from "../../services/logosServices";
+import ButtonName from "../../components/buttons/ButtonName";
 
 const HomePage = () => {
   const [carreras, setCarreras] = useState([]);

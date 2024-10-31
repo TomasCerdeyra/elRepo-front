@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { reportMaterial } from "../services/materialesServices";
 import { showConfirmationAlert, showSuccessAlert } from "../utils/alerts";
+import { AppContext } from "../context/AppContext";
 
 const MaterialDetail = ({ material }) => {
   const [denunciasRealizadas, setDenunciasRealizadas] = useState(new Set()); // Almacena los IDs de los materiales denunciados
+  const { materia } = useContext(AppContext)
 
   const handleDenuncia = async (materialID) => {
     if (denunciasRealizadas.has(materialID)) {
@@ -27,24 +29,30 @@ const MaterialDetail = ({ material }) => {
 
   return (
     <div className="mb-4 mt-8 bg-white p-6 rounded shadow-md w-full max-w-5xl mx-auto">
-      <h2 className="uppercase text-[#16353B] text-3xl text-center my-5 font-bold font-sans">
+      <h2 className="uppercase text-[#16353B] text-2xl font-semibold font-sans">
         {material.nombre}
+        <div className="w-full h-[1px] bg-[#16353B] mt-2"></div>
       </h2>
-      <p className="text-center mb-2 font-semibold">Año: {material.anio}</p>
-      <p className="text-center mb-2 font-semibold">Profesor: {material.profesor}</p>
-      <p className="text-center mb-2 font-semibold">{material.descripcion}</p>
+      <div className="flex flex-col gap-1 py-3">
+        <p className="">Asignatura: {materia}</p>
+        <p className="">Año: {material.anio}</p>
+        {material.profesor && <p className="">Profesor: {material.profesor}</p>}
+        <p className="">Archivos: {material.tipo.length}</p>
+        {material.descripcion && <p className="">Descripcion:{material.descripcion}</p>}
+      </div>
+      <div className="w-full h-[1px] bg-[#16353B] mt-1"></div>
 
-      <div className="mt-10 flex flex-col items-center justify-center gap-4">
+      <div className="mt-10 flex flex-col items-center justify-center gap-8">
         {/* Mostrar múltiples archivos */}
-        <div className="w-full h-1 bg-[#16353B] mt-1"></div>
         {material.rutasArchivos && material.rutasArchivos.map((rutaArchivo, index) => {
           const tipo = material.tipo[index]; // Obtener el tipo correspondiente
           return (
             <div key={index} className="flex flex-col items-center justify-center">
               {tipo === 'imagen' && (
                 <div className="flex flex-col gap-3">
-                  <p className="w-full">Imagen {material.nombre} ({index})</p>
+                  <p className="w-full text-xs">Imagen - {material.nombre} ({index})</p>
                   <img
+                    className=" rounded-lg"
                     src={`http://localhost:8080/${rutaArchivo}`}
                     alt={material.nombre}
                     style={{ maxWidth: '100%' }}
@@ -63,7 +71,7 @@ const MaterialDetail = ({ material }) => {
               )}
               {tipo === 'archivo' && (
                 <div className="flex flex-col gap-3">
-                  <p>Descargar el archivo {material.nombre} ({index})</p>
+                  <p className="w-full text-xs">Archivo - {material.nombre} ({index})</p>
                   <a
                     href={`http://localhost:8080/${rutaArchivo}`}
                     download
@@ -80,16 +88,14 @@ const MaterialDetail = ({ material }) => {
             </div>
           );
         })}
-        <div className="w-full h-1 bg-[#16353B] mt-1"></div>
-
-        <button
-          onClick={() => handleDenuncia(material._id)}
-          className="mt-4 hover:bg-red-600 hover:shadow-md transition duration-200 bg-red-500 text-white py-2 px-4 rounded"
-        >
-          Denunciar material
-        </button>
-
+        <div className="w-full h-[1px] bg-[#16353B] mt-2"></div>
       </div>
+      <button
+        onClick={() => handleDenuncia(material._id)}
+        className="mt-4 hover:bg-red-600 hover:shadow-md transition duration-200 bg-red-500 text-white py-2 px-4 rounded"
+      >
+        Denunciar material
+      </button>
     </div>
   );
 };

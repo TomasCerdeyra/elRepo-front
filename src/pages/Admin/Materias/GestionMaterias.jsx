@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import { getMateriaByName, createMateria, deleteMateria } from "../../services/materiasServices";
-import { getCarreras } from "../../services/carrerasServices";
-import { useMateria } from "../../context/MateriaContext";
-import MateriaForm from "../../components/forms/MateriaForm";
-import { showSuccessAlert, showConfirmationAlert } from "../../utils/alerts";
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
+import { getMateriaByName, createMateria, deleteMateria } from "../../../services/materiasServices";
+import { getCarreras } from "../../../services/carrerasServices";
+import { useMateria } from "../../../context/MateriaContext";
+import MateriaForm from "../../../components/forms/MateriaForm";
+import { showSuccessAlert, showConfirmationAlert } from "../../../utils/alerts";
 
 export const GestionMaterias = () => {
   const [nameMateria, setNameMateria] = useState("");

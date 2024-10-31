@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ButtonName from "./buttons/ButtonName";
+import ButtonName from "../buttons/ButtonName";
 
 const MateriasList = ({ materias }) => {
   return (

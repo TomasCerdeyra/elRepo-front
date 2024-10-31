@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { deleteMaterial, deleteReports, getMaterialesReportados } from '../services/materialesServices';
-import { seleccionarLogo } from "../utils/functions";
-import { showSuccessAlert, showConfirmationAlert } from '../utils/alerts';
+import { deleteMaterial, deleteReports, getMaterialesReportados } from '../../services/materialesServices';
+import { seleccionarLogo } from "../../utils/functions";
+import { showSuccessAlert, showConfirmationAlert } from '../../utils/alerts';
 import { Link } from 'react-router-dom';
 
 const MaterialesReportadosList = () => {

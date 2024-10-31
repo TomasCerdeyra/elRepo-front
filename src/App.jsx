@@ -2,16 +2,16 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import { AppProvider } from "./context/AppContext"
 import { AuthProvider } from "./context/AuthContext"
 import { MateriaProvider } from "./context/MateriaContext"
-import LoginPage from "./pages/LoginPage"
-import AdminPage from "./pages/AdminPage"
-import GestionCarreras from './pages/Admin/GestionCarreras';
-import GestionMaterias from './pages/Admin/GestionMaterias';
+import LoginPage from "./pages/principal/LoginPage"
+import AdminPage from "./pages/Admin/AdminPage"
+import GestionCarreras from "./pages/Admin/Carreras/GestionCarreras"
+import GestionMaterias from "./pages/Admin/Materias/GestionMaterias"
 import GestionAportes from './pages/Admin/GestionAportes';
-import HomePage from "./pages/HomePage"
-import MateriasPage from "./pages/MateriasPage"
-import MaterialesPage from "./pages/MaterialesPage"
-import MaterialPage from "./pages/MaterialPage"
-import SubirAportePage from "./pages/SubirAportePage"
+import HomePage from "./pages/principal/HomePage"
+import MateriasPage from "./pages/principal/MateriasPage"
+import MaterialesPage from "./pages/principal/MaterialesPage"
+import MaterialPage from "./pages/principal/material/MaterialPage"
+import SubirAportePage from "./pages/principal/material/SubirAportePage"
 import ProtectedRoute from "./components/protectedRoutes/protectedRoute"
 import PublicRoute from "./components/protectedRoutes/PublicRoute"
 import { NewCarrera } from "./pages/Admin/Carreras/NewCarrera";
@@ -20,7 +20,6 @@ import ActualizarMateria from "./pages/Admin/Materias/ActualizarMateria";
 import ActaulizarCarrera from "./pages/Admin/Carreras/ActaulizarCarrera"
 
 function App() {
-
   return (
     <AuthProvider>
       <AppProvider>

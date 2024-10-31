@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { getMateriasByCarrera } from '../services/materiasServices';
-import MateriasList from '../components/MateriasList';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { AppContext } from '../context/AppContext';
+import { getMateriasByCarrera } from '../../services/materiasServices';
+import MateriasList from '../../components/lists/MateriasList'
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { AppContext } from '../../context/AppContext';
 
 const MateriasPage = () => {
   const { id } = useParams();

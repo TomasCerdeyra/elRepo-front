@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
-import CarrerasList from "../../components/CarrerasList";
-import { getCarreras } from "../../services/carrerasServices"; // Importar el servicio
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
+import CarrerasList from "../../../components/lists/CarrerasList";
+import { getCarreras } from "../../../services/carrerasServices"; // Importar el servicio
 
 export const GestionCarreras = () => {
   const [carreras, setCarreras] = useState([]);

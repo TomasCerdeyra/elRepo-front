@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import AporteForm from "../components/forms/AporteFomr";
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
+import AporteForm from "../../../components/forms/AporteFomr"
 
 export const SubirAportePage = () => {
   return (

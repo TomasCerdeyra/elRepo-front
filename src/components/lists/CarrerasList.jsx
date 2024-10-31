@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { getCarreras, deleteCarrera } from "../services/carrerasServices";
-import { showConfirmationAlert, showSuccessAlert } from "../utils/alerts";
+import { getCarreras, deleteCarrera } from "../../services/carrerasServices";
+import { showConfirmationAlert, showSuccessAlert } from "../../utils/alerts";
 import { Link } from "react-router-dom";
 
 const CarrerasList = () => {
