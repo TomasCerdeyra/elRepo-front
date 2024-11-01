@@ -10,7 +10,6 @@ export const AuthProvider = ({ children }) => {
     const URL = 'http://localhost:8080/api/auth/status';
 
     useEffect(() => {
-        console.log('Estado de autenticación actualizado:', auth);
         const verificarAutenticacion = async () => {
             try {
                 const response = await axios.get(URL, {

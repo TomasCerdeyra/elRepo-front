@@ -4,8 +4,6 @@ import { useAuth } from '../../context/AuthContext';
 
 const ProtectedRoute = ({ adminOnly }) => {
     const { auth } = useAuth();
-
-    console.log('Estado de autenticación en ProtectedRoute:', auth);
     
     // Si el usuario no está autenticado, redirige a la página de login
     if (!auth.logueado) {

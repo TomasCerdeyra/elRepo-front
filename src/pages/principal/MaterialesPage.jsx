@@ -35,7 +35,7 @@ const MaterialesPage = () => {
   };
 
   // Filtro los materiales
-  const filteredMaterials = materiales.filter((material) => {
+  const filteredMaterials = materiales.filter((material) => { 
     const tipoDeMaterial = material.tipoAporte;
     return filter === '' || filter === 'Todos' || tipoDeMaterial === filter;
   });
