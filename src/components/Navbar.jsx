@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo1 from '../assets/logo1.png';
+import cerrar from '../assets/cerrar.png'
+import volver from '../assets/volver.png'
 
 const Navbar = () => {
   const location = useLocation();
@@ -18,12 +20,21 @@ const Navbar = () => {
 return (
   <div>
     <div className="flex justify-between items-center p-4 bg-white">
+
+      <div>
+      {location.pathname !== '/' && location.pathname !== '/home' && location.pathname !== '/admin' && (
+            <button
+              onClick={handleBack}            >
+            <img src={volver} alt="Volver Atrás" className="h-8 w-8 sm:w-8  sm:h-8 md:w-10 lg:w-10 md:h-10 lg:h-10  sm:ml-2 md:ml-8 lg:ml-8 " />
+            </button>
+          )}
+      </div>
       <div className="flex-1 flex justify-center items-center">
         <div className="flex justify-center items-center">
          {/* Mostrar el botón "Volver" solo si la ruta no es '/' (login) */}
           {location.pathname !== '/' ? (
             <Link to="/home">
-              <img src={logo1} className="ml-20 w-48 sm:w-56 md:w-64 lg:w-72 h-auto object-contain" alt="Logo" />
+              <img src={logo1} className=" w-48 sm:w-56 md:w-64 lg:w-72  h-auto object-contain" alt="Logo" />
             </Link>
           ) : (
             <img src={logo1} className="w-40 sm:w-48 md:w-56 lg:w-64 h-auto object-contain" alt="Logo" />
@@ -31,24 +42,15 @@ return (
         </div>
       </div>
       <div className='flex flex-col gap-2'>
-        {location.pathname !== '/' && (
+      {location.pathname !== '/' && (
           <div className="">
             <button
-              onClick={handleLogout}
-              className="hover:bg-red-700 hover:shadow-md transition duration-200 rounded text-xs font-medium bg-red-500 text-white py-1 px-1 "
-            >
-              Cerrar Sesión
+              onClick={handleLogout}            >
+            <img src={cerrar} alt="Cerrar Sesión" className="h-8 w-8 sm:w-8  sm:h-8 md:w-10 lg:w-10 sm:h-8  md:h-10 lg:h-10 sm:mr-2 md:mr-8 lg:mr-8" />
             </button>
           </div>
           )}
-          {location.pathname !== '/' && location.pathname !== '/home' && location.pathname !== '/admin' && (
-            <button
-              onClick={handleBack}
-              className="hover:bg-[#3b6b5e] hover:shadow-md transition duration-200 rounded text-xs font-medium bg-[#4F847C] text-white py-1 px-1 "
-            >
-              Volver atrás
-            </button>
-          )}
+
         </div>
 
       </div>

@@ -34,11 +34,11 @@ const MaterialDetail = ({ material }) => {
         <div className="w-full h-[1px] bg-[#16353B] mt-2"></div>
       </h2>
       <div className="flex flex-col gap-1 py-3">
-        <p className="">Asignatura: {materia}</p>
-        <p className="">Año: {material.anio}</p>
-        {material.profesor && <p className="">Profesor: {material.profesor}</p>}
-        <p className="">Archivos: {material.tipo.length}</p>
-        {material.descripcion && <p className="">Descripcion:{material.descripcion}</p>}
+        <p ><span className="font-bold">Asignatura: </span>{materia}</p>
+        <p className=""><span className="font-bold">Año: </span>{material.anio}</p>
+        {material.profesor && <p className=""><span className="font-bold">Profesor: </span>{material.profesor}</p>}
+        <p className=""><span className="font-bold">Archivo: </span>{material.tipo.length}</p>
+        {material.descripcion && <p className=""><span className="font-bold">Descripción: </span>{material.descripcion}</p>}
       </div>
       <div className="w-full h-[1px] bg-[#16353B] mt-1"></div>
 

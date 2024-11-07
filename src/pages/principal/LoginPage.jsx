@@ -22,7 +22,7 @@ const LoginPage = () => {
         </div>
 
         <div className="flex justify-center">
-          <button className='flex items-center gap-2 w-[195px] h-[40px] min-w-[195px] px-[1px] pl-[10px] pr-[10px] rounded-[3px] border border-[rgba(0,0,0,0.10)] bg-[#DC4E41] text-white hover:bg-[#c54242] hover:shadow-md transition duration-200' onClick={handleLogin}>
+          <button className='flex items-center p-6 gap-4 w-[260px] h-[40px] min-w-[195px] px-[1px] pl-[10px] pr-[10px] rounded-[3px] border border-[rgba(0,0,0,0.10)] bg-[#DC4E41] text-white hover:bg-[#c54242] hover:shadow-md transition duration-200' onClick={handleLogin}>
             <img src="/public/google_icon.png" alt="Google Icon" className="h-6 w-6" />
             <span className="ml-2 leading-[1.1] font-medium">Loguearse con Google</span>
           </button>
