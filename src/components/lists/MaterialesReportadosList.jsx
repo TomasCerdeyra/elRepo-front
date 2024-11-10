@@ -63,12 +63,15 @@ const MaterialesReportadosList = () => {
                     {materiales.map((material) => {
                         const { src, alt } = seleccionarLogo(material.tipo)
                         return (
-                            <div key={material._id} className="hover:bg-[#4F847C] hover:shadow-md transition duration-200 bg-[#ffff] p-3 m-2 flex items-center justify-between gap-5">
-                                <Link to={`/material/${material._id}`} className="flex items-center justify-between w-full p-3 gap-3">
+                            <div
+                            key={material._id}
+                            className="hover:bg-[#EFF3F5] ring-4 ring-[#EFF3F5] hover:ring-[#4F847C] hover:shadow-md transition duration-200 bg-[#ffff] m-2 flex items-center justify-between py-3 px-4"
+                          >    
+                          <Link to={`/material/${material._id}`} className="flex items-center justify-between w-full p-3 gap-3">
                                     <img
                                         src={src}
                                         alt={alt}
-                                        className="h-9 sm:h-9 md:h-12 lg:h-16 xl:h-20 object-contain"
+                                        className="h-9 sm:h-9 md:h-[3rem] object-contain"
                                     />
                                     <p className="flex-1 font-semibold text-xl">{material.nombre}</p>
                                     <p className="flex-1 text-center text-lg font-medium">Año: {material.anio}</p>

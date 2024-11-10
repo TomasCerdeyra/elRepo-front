@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { seleccionarLogo } from "../../utils/functions";
+import { seleccionarLogo } from "../../utils/functions.js";
 import logoReport from '../../assets/logos/exclamation-mark_3572081.png'
 import logoReport2 from '../../assets/logos/file_5518183.png'
 import logoReport3 from '../../assets/logos/information_17002086.png'
-import logoReport4 from '../../assets/logos/Vector-web.png'
+import logoReport4 from '../../assets/logos/icon-warning-24.png'
 
 const MaterialesList = ({ materiales }) => {
 
@@ -37,9 +37,9 @@ const MaterialesList = ({ materiales }) => {
                     {material.denuncias > 0 && (
                       <div className="sm:flex-1 flex justify-end">
                         <img
-                          src={logoReport}
+                          src={logoReport4}
                           alt=""
-                          title="¡Cuidado! Este material está reportado"
+                          title="Aporte Reportado"
                           className="h-10 w-10"
                         />
                       </div>

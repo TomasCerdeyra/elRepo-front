@@ -25,7 +25,7 @@ return (
       {location.pathname !== '/' && location.pathname !== '/home' && location.pathname !== '/admin' && (
             <button
               onClick={handleBack}            >
-            <img src={volver} alt="Volver Atrás" className="h-8 w-8 sm:w-8  sm:h-8 md:w-10 lg:w-10 md:h-10 lg:h-10  sm:ml-2 md:ml-8 lg:ml-8 " />
+            <img src={volver} alt="Volver Atrás" className="h-8 w-8 sm:w-8  sm:h-8 md:w-10 lg:w-10 md:h-10 lg:h-10  sm:ml-2 md:ml-8 lg:ml-8 "/>
             </button>
           )}
       </div>

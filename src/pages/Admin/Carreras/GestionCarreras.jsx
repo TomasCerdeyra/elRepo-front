@@ -37,7 +37,7 @@ export const GestionCarreras = () => {
             </button>
           </Link>
         </div>
-        <div className="h-[.13rem] bg-[#4F847C] mt-8 mx-9 mb-6"></div>
+        <div className="h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
         <h1 className="text-center font-medium text-2xl text-[#16353B] mb-6">LISTA DE CARRERAS:</h1>
         {/* Pasar las carreras obtenidas al componente CarrerasList */}
         <CarrerasList carreras={carreras} />
