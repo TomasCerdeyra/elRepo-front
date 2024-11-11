@@ -17,12 +17,13 @@ const AdminPage = () => {
           <ButtonAdmins route={"gestioncarreras"} text={"Gestion de Carreras"} />
           <ButtonAdmins route={"gestionmaterias"} text={"Gestion de Materias"} />
 
-          <div className="flex w-full  items-center ">
+          <div className="flex w-full  items-center justify-center ">
             <ButtonAdmins route={"gestionaportes"} text={"Gestion de Aportes"} className="" />
-            <div className="ml-2">
+            <div className="absolute -mt-14">
               <DenunciasCounter />
               </div>
           </div>
+          
         </div>
       </div>
       <Footer />
