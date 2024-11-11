@@ -39,7 +39,7 @@ const MaterialesList = ({ materiales }) => {
                         <img
                           src={logoReport4}
                           alt=""
-                          title="Aporte Reportado"
+                          title="Aporte Reportado por un usuario, puede tener contenido inapropiado"
                           className="h-10 w-10"
                         />
                       </div>

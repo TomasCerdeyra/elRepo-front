@@ -17,15 +17,13 @@ const DenunciasCounter = () => {
   // Actualización automática cada 30 segundos
   useEffect(() => {
     fetchReportedMaterials();
-    const interval = setInterval(fetchReportedMaterials, 30000);
-    return () => clearInterval(interval);
   }, []);
 
   // Si no hay denuncias, no mostrar nada
   if (reportCount === 0) return null;
 
   return (
-    <span className="bg-red-600 text-white text-sm font-bold rounded-full h-6 w-6 flex  justify-center">
+    <span className="bg-red-600 text-white text-sm text-center font-light rounded-full h-4 w-4 flex items-center justify-center ml-2">
       {reportCount}
     </span>
   );
