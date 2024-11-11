@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ButtonAdmins from "../../components/buttons/ButtonAdmins";
+import DenunciasCounter from "../../components/DenunciasCounter";
 
 const AdminPage = () => {
   return (
@@ -13,17 +14,19 @@ const AdminPage = () => {
         </h1>
         <div className="h-1 bg-[#4F847C] mt-10 mx-auto mb-6 w-4/5 md:w-3/5 lg:w-1/2 xl:w-2/5"></div>
         <div className="w-full flex flex-col items-center gap-2 space-y-4 mt-10">
-          <ButtonAdmins route={"gestioncarreras"}  text={"Gestion de Carreras"} />
+          <ButtonAdmins route={"gestioncarreras"} text={"Gestion de Carreras"} />
+          <ButtonAdmins route={"gestionmaterias"} text={"Gestion de Materias"} />
 
-          <ButtonAdmins route={"gestionmaterias"}  text={"Gestion de Materias"} />
-
-          <ButtonAdmins route={"gestionaportes"} text={"Gestion de Aportes"} />
+          <div className="flex w-full  items-center ">
+            <ButtonAdmins route={"gestionaportes"} text={"Gestion de Aportes"} className="" />
+            <div className="ml-2">
+              <DenunciasCounter />
+              </div>
+          </div>
         </div>
-
       </div>
       <Footer />
     </div>
-
   );
 };
 

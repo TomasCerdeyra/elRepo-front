@@ -18,8 +18,8 @@ const LoginPage = () => {
           <h1 className='text-[#16353B] text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-center font-bold font-sans mt-8'>
             INICIAR SESIÓN
           </h1>
-          <div className="h-[.15rem] bg-[#4F847C] mt-4 mx-auto w-4/5 md:w-3/5 lg:w-1/2 xl:w-2/5"></div>
-        </div>
+          <div className="h-1 bg-[#4F847C] mt-8 mx-9 mb-6"></div>
+          </div>
 
         <div className="flex justify-center">
           <button className='flex items-center p-6 gap-4 w-[260px] h-[40px] min-w-[195px] px-[1px] pl-[10px] pr-[10px] rounded-[3px] border border-[rgba(0,0,0,0.10)] bg-[#DC4E41] text-white hover:bg-[#c54242] hover:shadow-md transition duration-200' onClick={handleLogin}>
