@@ -64,10 +64,10 @@ const MaterialesReportadosList = () => {
                         const { src, alt } = seleccionarLogo(material.tipo)
                         return (
                             <div
-                            key={material._id}
-                            className="hover:bg-[#EFF3F5] ring-4 ring-[#EFF3F5] hover:ring-[#4F847C] hover:shadow-md transition duration-200 bg-[#ffff] m-2 flex items-center justify-between py-3 px-4"
-                          >    
-                          <Link to={`/material/${material._id}`} className="flex items-center justify-between w-full p-3 gap-3">
+                                key={material._id}
+                                className="hover:bg-[#EFF3F5] ring-4 ring-[#EFF3F5] hover:ring-[#4F847C] hover:shadow-md transition duration-200 bg-[#ffff] m-2 flex flex-col items-center justify-between py-3 px-4"
+                            >
+                                <Link to={`/material/${material._id}`} className="flex flex-col items-center justify-center sm:flex-row sm:justify-between  w-full p-3 gap-3">
                                     <img
                                         src={src}
                                         alt={alt}
@@ -75,13 +75,16 @@ const MaterialesReportadosList = () => {
                                     />
                                     <p className="flex-1 font-semibold text-xl">{material.nombre}</p>
                                     <p className="flex-1 text-center text-lg font-medium">Año: {material.anio}</p>
+                                    <div className='flex items-center justify-center gap-4'>
+                                        <button onClick={() => handleDeleteReport(material._id)} className="rounded text-xm font-medium ring p-1 hover:ring-blue-600 hover:bg-blue-600 ring-blue-500 text-right bg-blue-500 text-white">
+                                            Rechazar
+                                        </button>
+                                        <button onClick={() => handleDeleteMaterial(material._id)} className="rounded text-xm font-medium ring p-1 hover:ring-red-600 hover:bg-red-600 ring-red-500 text-right bg-red-500 text-white">
+                                            Eliminar
+                                        </button>
+                                    </div>
                                 </Link>
-                                <button onClick={() => handleDeleteReport(material._id)} className="rounded text-xm font-medium ring hover:ring-blue-600 hover:bg-blue-600 ring-blue-500 text-right bg-blue-500 text-white mr-5">
-                                    Rechazar
-                                </button>
-                                <button onClick={() => handleDeleteMaterial(material._id)} className="rounded text-xm font-medium ring hover:ring-red-600 hover:bg-red-600 ring-red-500 text-right bg-red-500 text-white mr-5">
-                                    Eliminar
-                                </button>
+
                             </div>
                         )
 

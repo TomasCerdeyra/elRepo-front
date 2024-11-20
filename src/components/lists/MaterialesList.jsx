@@ -40,7 +40,7 @@ const MaterialesList = ({ materiales }) => {
                           src={logoReport4}
                           alt=""
                           title="Aporte Reportado por un usuario, puede tener contenido inapropiado"
-                          className="h-10 w-10"
+                          className="h-7 w-7 sm:h-10 sm:w-10"
                         />
                       </div>
                     )}
@@ -51,8 +51,6 @@ const MaterialesList = ({ materiales }) => {
                   </div>
                 </Link>
               </div>
-
-
             )
           })}
         </ul>

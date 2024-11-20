@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { reportMaterial } from "../services/materialesServices";
 import { showConfirmationAlert, showSuccessAlert } from "../utils/alerts";
 import { AppContext } from "../context/AppContext";
+import logoCarpeta from '../assets/carpeta.png'
 
 const MaterialDetail = ({ material }) => {
   const [denunciasRealizadas, setDenunciasRealizadas] = useState(new Set()); // Almacena los IDs de los materiales denunciados
@@ -47,7 +48,7 @@ const MaterialDetail = ({ material }) => {
         {material.rutasArchivos && material.rutasArchivos.map((rutaArchivo, index) => {
           const tipo = material.tipo[index]; // Obtener el tipo correspondiente
           return (
-            <div key={index} className="flex flex-col items-center justify-center">
+            <div key={index} className="flex flex-col items-start justify-center w-full">
               {tipo === 'imagen' && (
                 <div className="flex flex-col gap-3">
                   <p className="w-full text-xs">Imagen - {material.nombre} ({index})</p>
@@ -71,7 +72,11 @@ const MaterialDetail = ({ material }) => {
               )}
               {tipo === 'archivo' && (
                 <div className="flex flex-col gap-3">
-                  <p className="w-full text-xs">Archivo - {material.nombre} ({index})</p>
+                  <div className="flex items-center gap-1">
+                    <img src={logoCarpeta} className="w-9 object-contain" alt="" />
+                    <p className="w-full text-xs">Archivo - {material.nombre} ({index})</p>
+                  </div>
+
                   <a
                     href={`http://localhost:8080/${rutaArchivo}`}
                     download

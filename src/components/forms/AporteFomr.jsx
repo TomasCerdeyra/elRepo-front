@@ -67,7 +67,7 @@ const AporteForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-lg mx-auto mb-4">
+    <form onSubmit={handleSubmit} noValidate className="bg-white p-6 rounded shadow-md w-full max-w-lg mx-auto mb-4">
       <div className="mb-2">
         <label htmlFor="tipo" className="block font-semibold">
           Tipo de Aporte:
@@ -147,7 +147,7 @@ const AporteForm = () => {
           required
         />
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-start">
         <button
           type="submit"
           className="hover:bg-green-400 hover:shadow-md transition duration-200 bg-green-600 text-white py-2 px-6 rounded mt-5"
