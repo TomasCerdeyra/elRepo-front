@@ -70,7 +70,7 @@ const Navbar = () => {
             <div className="">
               <button
                 onClick={handleLogout}            >
-                <img src={cerrar} alt="Cerrar Sesión" className="h-8 w-8 sm:w-8  sm:h-8 md:w-10 lg:w-10 sm:h-8  md:h-10 lg:h-10 sm:mr-2 md:mr-8 lg:mr-8" />
+                <img src={cerrar} alt="Cerrar Sesión" className="h-8 w-8 sm:w-8 sm:h-8 md:w-10 lg:w-10 md:h-10 lg:h-10 sm:mr-2 md:mr-8 lg:mr-8" />
               </button>
             </div>
           )}
