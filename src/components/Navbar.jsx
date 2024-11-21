@@ -12,10 +12,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { auth } = useAuth()
 
-  useEffect(() => {
-    console.log(auth.user);
-
-  })
   //Funcion para deslogear
   const handleLogout = () => {
     window.location.href = 'http://localhost:8080/api/auth/logout/'

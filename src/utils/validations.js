@@ -25,7 +25,6 @@ export const validarArchivos = (files) => {
     }
 
     totalSize += file.size
-    console.log(totalSize);
     
   }
 

@@ -13,7 +13,6 @@ const MaterialesReportadosList = () => {
                 const data = await getMaterialesReportados();
                 setMateriales(data);
             } catch (error) {
-                console.log(error);
                 console.log('Error al cargar los materiales denunciados');
             }
         };
