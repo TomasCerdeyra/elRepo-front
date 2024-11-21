@@ -74,7 +74,7 @@ const MaterialDetail = ({ material }) => {
                 <div className="flex flex-col gap-3">
                   <div className="flex items-center gap-1">
                     <img src={logoCarpeta} className="w-9 object-contain" alt="" />
-                    <p className="w-full text-xs">Archivo - {material.nombre} ({index})</p>
+                    <p className="w-full text-xs">Archivo - {material.nombre}({index})</p>
                   </div>
 
                   <a
